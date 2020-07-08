@@ -3,8 +3,9 @@
 
 **build**
 buildSrc/
-!**src/main/**
-
+# !**src/main/**
+build/
+hw01-gradle/build 
 *.log
 
 ### Package File ###

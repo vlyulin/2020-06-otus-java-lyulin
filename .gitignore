@@ -2,17 +2,10 @@
 # gradle/wrapper/
 
 **build**
-<<<<<<< HEAD
 **wrapper**
 buildSrc/
 !**src/main/**
 build/
-=======
-buildSrc/
-!**src/main/**
-build/
-hw01-gradle/build 
->>>>>>> f8387228646ea3b2d5056b7aaa17cd0818e60f99
 *.log
 
 ### Package File ###

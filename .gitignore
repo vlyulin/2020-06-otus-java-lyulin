@@ -1,0 +1,24 @@
+.gradle
+# gradle/wrapper/
+
+**build**
+**wrapper**
+buildSrc/
+!**src/main/**
+build/
+*.log
+
+### Package File ###
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.rar
+
+### IntelliJ IDEA ###
+.idea
+*.idea
+*.iws
+*.iml
+*.ipr

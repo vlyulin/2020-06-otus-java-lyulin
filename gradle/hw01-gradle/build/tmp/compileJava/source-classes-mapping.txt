@@ -1,0 +1,2 @@
+ru/otus/HelloOtus.java
+ ru.otus.HelloOtus

@@ -5,14 +5,15 @@
 
 # Содержание:
 * [Студент](#Студент)
-* [Папка hw01-gradle](#Папка-hw01-gradle)
+* [Модуль hw01-gradle](#Модуль-hw01-gradle)
+* [Модуль hw02-DIY-ArrayList](#Модуль-hw02-DIY-ArrayList)
 
 # Студент
 ФИО слушателя: Люлин Вадим Евгеньевич
 Название курса: Разработчик Java
 Группа: 2020-06
 
-## Папка hw01-gradle
+## Модуль hw01-gradle
 Проект gradle с модульной структурой
 
 Домашнее задание
@@ -36,6 +37,18 @@
 
 При желании, можно сделать maven-проект и далее на курсе работать с maven-ом.
 Для Maven инструкция аналогичная (просто в тексте замените Gradle на Maven). 
+
+## Модуль hw02-DIY-ArrayList
+Домашнее задание DIY ArrayList
+
+Цель: изучить как устроена стандартная коллекция ArrayList. Попрактиковаться в создании своей коллекции.
+Написать свою реализацию ArrayList на основе массива.
+class DIYarrayList<T> implements List<T>{...}
+
+Проверить, что на ней работают методы из java.util.Collections:
+Collections.addAll(Collection<? super T> c, T... elements)
+Collections.static <T> void copy(List<? super T> dest, List<? extends T> src)
+Collections.static <T> void sort(List<T> list, Comparator<? super T> c)
 
 ### Преподаватели
 Сергей Петрелевич<br>

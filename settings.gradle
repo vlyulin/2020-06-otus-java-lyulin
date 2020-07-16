@@ -1,0 +1,5 @@
+rootProject.name = '2020-06-otus-java-lyulin'
+include 'hw01-gradle'
+include 'hw02-DIY-ArrayList'
+
+

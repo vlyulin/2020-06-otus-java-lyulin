@@ -3,6 +3,7 @@
 
 **build**
 **wrapper**
+**out**
 buildSrc/
 !**src/main/**
 build/

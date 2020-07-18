@@ -2,10 +2,9 @@
 # gradle/wrapper/
 
 **build**
-**wrapper**
 **out**
 buildSrc/
-!**src/main/**
+!**buildSrc/src**
 build/
 *.log
 

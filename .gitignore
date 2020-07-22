@@ -2,10 +2,10 @@
 # gradle/wrapper/
 
 **build**
+**out**
 buildSrc/
-!**src/main/**
+!**buildSrc/src**
 build/
-hw01-gradle/build 
 *.log
 
 ### Package File ###

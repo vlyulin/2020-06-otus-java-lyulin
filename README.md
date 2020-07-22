@@ -7,6 +7,7 @@
 * [Студент](#Студент)
 * [Модуль hw01-gradle](#Модуль-hw01-gradle)
 * [Модуль hw02-DIY-ArrayList](#Модуль_hw02-DIY-ArrayList)
+* [Папка hw02-DIY-ArrayList-jmh](#Папка_hw02-DIY-ArrayList-jmh)
 
 # Студент
 ФИО слушателя: Люлин Вадим Евгеньевич
@@ -49,6 +50,9 @@ class DIYarrayList<T> implements List<T>{...}
 Collections.addAll(Collection<? super T> c, T... elements)
 Collections.static <T> void copy(List<? super T> dest, List<? extends T> src)
 Collections.static <T> void sort(List<T> list, Comparator<? super T> c)
+
+## Папка hw02-DIY-ArrayList-jmh<a name="Папка_hw02-DIY-ArrayList-jmh">
+Изучение JMH
 
 ### Преподаватели
 Сергей Петрелевич<br>

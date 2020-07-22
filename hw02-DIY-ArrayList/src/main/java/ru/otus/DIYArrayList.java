@@ -1,11 +1,15 @@
 package ru.otus;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Arrays;
 
 public class DIYArrayList<E> implements List<E> {
 
-    private final int INIT_SIZE = 16;
-    private Object[] array;
+    private static final int INIT_SIZE = 16;
+    private Object[] array = new Object[INIT_SIZE];
     private int pointer = 0;
 
     class DIYListIterator<E> implements ListIterator {
@@ -68,14 +72,12 @@ public class DIYArrayList<E> implements List<E> {
         }
     }
 
-    public DIYArrayList() {
-        resize(INIT_SIZE);
-    }
+    public DIYArrayList() {}
 
     public DIYArrayList(Collection<? extends E> c) {
         resize(c.size());
-        System.arraycopy(c.toArray(), 0, array, pointer, c.size());
-        pointer = c.size();
+        array = Arrays.copyOf(c.toArray(), c.size());
+        pointer = array.length; // c.size();
     }
 
     public DIYArrayList(int initialCapacity) {
@@ -112,9 +114,7 @@ public class DIYArrayList<E> implements List<E> {
             @Override
             public E next() {
                 if (pointer == 0 || currentIndex >= pointer) throw new IndexOutOfBoundsException();
-                // TODO: Warning:(190, 16) Unchecked cast: 'java.lang.Object' to 'E'
-                // Как тут делать правильно?
-                return (E) array[currentIndex++];
+                return (E) (array[currentIndex++]);
             }
 
             @Override
@@ -137,11 +137,7 @@ public class DIYArrayList<E> implements List<E> {
     @Override
     public boolean add(E e) {
         if (needResize()) {
-            // TODO: Тут Warning:(139, 24) Dereference of 'array' may produce 'NullPointerException'
-            // Надо ли проверять на null и как реагировать, если надо?
-            int size = array.length;
-            size = (size == 0) ? INIT_SIZE : size + (size >> 1);
-            resize(size);
+            resize(array.length + (array.length >> 1));
         }
         array[pointer++] = e;
         return true;
@@ -240,6 +236,8 @@ public class DIYArrayList<E> implements List<E> {
     private void resize(int newLength) {
 
         if (newLength < 0 || pointer > newLength) throw new IllegalArgumentException();
+        // Массив уже требуемого размера. Изменений не требуется.
+        if (newLength == array.length) return;
 
         if (array == null) {
             array = new Object[newLength];

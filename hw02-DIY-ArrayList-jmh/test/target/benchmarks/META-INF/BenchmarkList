@@ -1,0 +1,2 @@
+JMH S 19 ru.otus.MyBenchmark S 51 ru.otus.generated.MyBenchmark_testArrayList_jmhTest S 13 testArrayList S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E U 12 MILLISECONDS E E 
+JMH S 19 ru.otus.MyBenchmark S 54 ru.otus.generated.MyBenchmark_testDiyArrayList_jmhTest S 16 testDiyArrayList S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E U 12 MILLISECONDS E E 

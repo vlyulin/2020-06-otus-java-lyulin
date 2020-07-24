@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow'
+}
+
+sourceCompatibility = JavaVersion.VERSION_14
+targetCompatibility = JavaVersion.VERSION_14
+
+dependencies {
+    implementation 'com.google.guava:guava'
+    implementation ('org.junit.jupiter:junit-jupiter-api')
+    implementation ('org.junit.jupiter:junit-jupiter-engine')
+    implementation ('org.junit.jupiter:junit-jupiter-params')
+    implementation ('org.assertj:assertj-core')
+    implementation ('org.mockito:mockito-core')
+    implementation ('org.mockito:mockito-junit-jupiter')
+}
+
+gradle.projectsEvaluated {
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:unchecked"
+    }
+}
+
+shadowJar {
+    archiveBaseName.set('hw03Reflection')
+    archiveVersion.set('0.1')
+    archiveClassifier.set('')
+    manifest {
+        attributes 'Main-Class': 'ru.otus.MyJUnit'
+    }
+}
+
+tasks.build.dependsOn tasks.shadowJar
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+task run(type: JavaExec) {
+    group = 'Run' // <-- change the name as per your need
+    description = 'Start main'
+
+    classpath sourceSets.main.runtimeClasspath // <-- Don't change this
+    main = "ru.otus.MyJUnit"
+//    args "arg1", "arg2"
+}

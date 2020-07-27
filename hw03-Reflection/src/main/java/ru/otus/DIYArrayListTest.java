@@ -1,10 +1,10 @@
 package ru.otus;
 
 import com.google.common.collect.Lists;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import ru.otus.annotations.After;
+import ru.otus.annotations.Before;
+import ru.otus.annotations.Test;
 
 import java.util.*;
 
@@ -18,14 +18,12 @@ class DIYArrayListTest {
             1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0,
             11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0);
 
-    @BeforeEach
+    @Before
     public void beforeEach() {
-        System.out.println("Before each.");
     }
 
-    @AfterEach
+    @After
     public void afterEach() {
-        System.out.println("After each.");
     }
 
     @Test

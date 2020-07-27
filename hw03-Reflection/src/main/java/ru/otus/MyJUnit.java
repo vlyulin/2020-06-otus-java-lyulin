@@ -1,21 +1,20 @@
 package ru.otus;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import ru.otus.annotations.Test;
+import ru.otus.annotations.After;
+import ru.otus.annotations.Before;
 
 import java.lang.annotation.Annotation;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class MyJUnit {
 
     private int failedTests = 0;
-    private int successTests = 0;
+    private int succedTests = 0;
 
     public static void main(String[] args) {
         MyJUnit myJUnit = new MyJUnit();
@@ -36,26 +35,50 @@ public class MyJUnit {
 
         cleanStatistics();
 
-        System.out.println("simpleName:" + clazz.getSimpleName());
-        System.out.println("canonicalName:" + clazz.getCanonicalName());
+        Constructor<?>[] declaredConstructors = clazz.getDeclaredConstructors();
+        final List<Object> params = new ArrayList<Object>();
 
-        System.out.println("@Before:");
-        List<Method> beforeMethods = getMethodsAnnotatedWith(clazz, BeforeEach.class);
-        beforeMethods.stream().forEach(method -> System.out.println(method.getName()));
-
-        System.out.println("@Test");
+        List<Method> beforeMethods = getMethodsAnnotatedWith(clazz, Before.class);
         List<Method> testMethods = getMethodsAnnotatedWith(clazz, Test.class);
-        testMethods.stream().forEach(method -> System.out.println(method.getName()));
+        List<Method> afterMethods = getMethodsAnnotatedWith(clazz, After.class);
 
-        System.out.println("@After");
-        List<Method> afterMethods = getMethodsAnnotatedWith(clazz, AfterEach.class);
+        // Run each test
+        testMethods.stream().forEach(
+                testMethod -> {
+                    Object obj;
+                    // Для каждого теста новый экземпляр
+                    try {
+                        obj = declaredConstructors[0].newInstance();
+                    } catch (Exception e) {
+                        System.out.println("Тестовый класс " + testClassName + ": " + e.getMessage());
+                        e.printStackTrace();
+                        return;
+                    }
 
-        testMethods.stream().forEach(testMethod -> runTest(beforeMethods, testMethod, afterMethods));
+                    if (runTest(obj, beforeMethods, testMethod, afterMethods)) {
+                        System.out.println("SUCCESS");
+                        succedTests++;
+                    } else {
+                        System.out.println("FAIL");
+                        failedTests++;
+                    }
+                }
+        );
+
+        printStatistics();
     }
 
     private void cleanStatistics() {
         failedTests = 0;
-        successTests = 0;
+        succedTests = 0;
+    }
+
+    private void printStatistics() {
+        System.out.println(
+                "\nTotals: " + (succedTests + failedTests)
+                        + "\nSucceed: " + succedTests
+                        + "\nFailed: " + failedTests
+        );
     }
 
     private static List<Method> getMethodsAnnotatedWith(final Class<?> clazz, final Class<? extends Annotation> annotation) {
@@ -68,20 +91,33 @@ public class MyJUnit {
         return methods;
     }
 
-    private void runTest(List<Method> beforeMethods, Method method, List<Method> afterMethods) {
-        System.out.println("run " + method.getName());
-        if (method.isAnnotationPresent(DisplayName.class)) {
-            Annotation annotation = method.getAnnotation(DisplayName.class);
-            System.out.println(annotation.toString());
-        }
+    private boolean runTest(Object obj, List<Method> beforeMethods, Method method, List<Method> afterMethods) {
         try {
-            for (Method beforeMethod : beforeMethods) {
-                System.out.println("Try to run: "+beforeMethod.getName());
-                var result = beforeMethod.invoke(null);
+            Object result;
+
+            if (method.isAnnotationPresent(DisplayName.class)) {
+                DisplayName displayName = (DisplayName) method.getAnnotation(DisplayName.class);
+                System.out.println(displayName.value());
+            } else {
+                System.out.println(method.getName());
             }
-            successTests++;
+
+            // Before method processing
+            for (Method beforeMethod : beforeMethods) {
+                result = beforeMethod.invoke(obj);
+            }
+
+            // Test method processing
+            result = method.invoke(obj);
+
+            //  After method processing
+            for (Method afterMethod : afterMethods) {
+                result = afterMethod.invoke(obj);
+            }
+
+            return true; // The test has passed
         } catch (Exception e) {
-            failedTests++;
+            return false; // The test has failed
         }
     }
 }

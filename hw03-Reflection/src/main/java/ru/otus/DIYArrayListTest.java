@@ -1,15 +1,14 @@
 package ru.otus;
 
+//import com.google.common.collect.Lists;
 import com.google.common.collect.Lists;
-import org.junit.jupiter.api.DisplayName;
 import ru.otus.annotations.After;
 import ru.otus.annotations.Before;
+import ru.otus.annotations.DisplayName;
 import ru.otus.annotations.Test;
 
 import java.util.*;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static ru.otus.asserts.MyAssertions.*;
 
 @DisplayName("Class should")
 class DIYArrayListTest {
@@ -28,27 +27,28 @@ class DIYArrayListTest {
 
     @Test
     @DisplayName("Test size for empty DIYArray.")
-    public void testEmptyDIYArraySize() {
+    //TODO: Как в JUnit сдлано так, что не требуется добавлять "assertThat"?
+    public void testEmptyDIYArraySize() throws Exception {
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>();
         assertThat(diyArrayList.size()).isEqualTo(0);
     }
 
     @Test
     @DisplayName("Проверка создания новый DIYArrayList на базе другой коллекции")
-    public void testConstructorWithCollection() {
+    public void testConstructorWithCollection() throws Exception {
         List<Double> diyArrayList = new DIYArrayList<>(reference20list);
         assertEquals(reference20list, diyArrayList);
     }
 
     @Test
     @DisplayName("Проверка exception создания DIYArrayList с отрицательной вместимостью")
-    public void testConstructorWithNegativeCapacity() {
+    public void testConstructorWithNegativeCapacity() throws Exception {
         assertThrows(IllegalArgumentException.class, () -> new DIYArrayList<Double>(-1));
     }
 
     @Test
     @DisplayName("Проверка расширения внутреннего массива при добавлении множества элементов")
-    void addElements() {
+    void addElements() throws Exception {
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>();
         double d = 1;
         for (int i = 0; i < 32; i++) {
@@ -61,7 +61,7 @@ class DIYArrayListTest {
 
     @Test
     @DisplayName("Тестирование iterator на пустой коллекции")
-    void testIteratorOnEmptyDIYList() {
+    void testIteratorOnEmptyDIYList() throws Exception {
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>();
         Iterator<Double> iterator = diyArrayList.iterator();
 
@@ -74,7 +74,7 @@ class DIYArrayListTest {
 
     @Test
     @DisplayName("Тестирование iterator на коллекции с одним элементом")
-    void testIteratorOnDIYListWithOneElement() {
+    void testIteratorOnDIYListWithOneElement() throws Exception {
 
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>(Arrays.asList(1.0));
         Iterator<Double> iterator = diyArrayList.iterator();
@@ -91,7 +91,7 @@ class DIYArrayListTest {
 
     @Test
     @DisplayName("Тестирование iterator на коллекции с несколькими элементами")
-    void testIteratorOnDIYArrayListWithSeveralElements() {
+    void testIteratorOnDIYArrayListWithSeveralElements() throws Exception {
 
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>(reference20list);
         Iterator<Double> iterator = diyArrayList.iterator();
@@ -104,7 +104,7 @@ class DIYArrayListTest {
 
     @Test
     @DisplayName("Проверка ListIterator на пустой коллекции")
-    void testListIteratorOnEmptyDIYList() {
+    void testListIteratorOnEmptyDIYList() throws Exception {
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>();
         ListIterator<Double> listIterator = diyArrayList.listIterator();
 
@@ -123,7 +123,7 @@ class DIYArrayListTest {
 
     @Test
     @DisplayName("Проверка ListIterator на коллекции с одним элементом")
-    void testListIteratorOnDIYListWithOneElement() {
+    void testListIteratorOnDIYListWithOneElement() throws Exception {
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>();
         diyArrayList.add(1.0);
         ListIterator<Double> listIterator = diyArrayList.listIterator();
@@ -146,7 +146,7 @@ class DIYArrayListTest {
 
     @Test
     @DisplayName("Тестирование ListIterator на прямой перебор коллекции с несколькими элементами")
-    void testListIteratorOnDIYArrayListWithSeveralElements() {
+    void testListIteratorOnDIYArrayListWithSeveralElements() throws Exception {
 
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>(reference20list);
         ListIterator<Double> iterator = diyArrayList.listIterator();
@@ -159,7 +159,7 @@ class DIYArrayListTest {
 
     @Test
     @DisplayName("Тестирование ListIterator на обратный перебор коллекции с несколькими элементами")
-    void testBackwardListIteratorOnDIYArrayListWithSeveralElements() {
+    void testBackwardListIteratorOnDIYArrayListWithSeveralElements() throws Exception {
 
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>(reference20list);
         ListIterator<Double> iterator = diyArrayList.listIterator(diyArrayList.size());
@@ -178,7 +178,7 @@ class DIYArrayListTest {
 
     @Test
     @DisplayName("Test Collections.addAll(Collection<? super T> c, T... elements)")
-    void testCollectionsAddAll() {
+    void testCollectionsAddAll() throws Exception {
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>();
         Collections.addAll(diyArrayList, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0,
                 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0);
@@ -187,7 +187,7 @@ class DIYArrayListTest {
 
     @Test
     @DisplayName("Test Collections.static <T> void copy(List<? super T> dest, List<? extends T> src)")
-    void testCollectionCopy() {
+    void testCollectionCopy() throws Exception {
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>();
 
         for (double d = 1; d < 21; d++) {
@@ -199,7 +199,7 @@ class DIYArrayListTest {
 
     @Test
     @DisplayName("Test Collections.static <T> void sort(List<T> list, Comparator<? super T> c)")
-    void testCollectionSort() {
+    void testCollectionSort() throws Exception {
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>(reference20list);
         // Test reverse order sorting
         Collections.sort(diyArrayList, Collections.reverseOrder());

@@ -27,7 +27,7 @@ class DIYArrayListTest {
 
     @Test
     @DisplayName("Test size for empty DIYArray.")
-    //TODO: Как в JUnit сдлано так, что не требуется добавлять "throws Exception"?
+    //TODO: Как в JUnit сделано так, что не требуется добавлять "throws Exception" в тестовый метод?
     public void testEmptyDIYArraySize() throws Exception {
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>();
         assertThat(diyArrayList.size()).isEqualTo(0);

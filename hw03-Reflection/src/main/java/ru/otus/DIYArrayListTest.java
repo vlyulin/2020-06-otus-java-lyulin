@@ -27,7 +27,7 @@ class DIYArrayListTest {
 
     @Test
     @DisplayName("Test size for empty DIYArray.")
-    //TODO: Как в JUnit сдлано так, что не требуется добавлять "assertThat"?
+    //TODO: Как в JUnit сдлано так, что не требуется добавлять "throws Exception"?
     public void testEmptyDIYArraySize() throws Exception {
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>();
         assertThat(diyArrayList.size()).isEqualTo(0);

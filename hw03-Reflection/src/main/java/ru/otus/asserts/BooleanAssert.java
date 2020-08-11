@@ -1,5 +1,7 @@
 package ru.otus.asserts;
 
+import ru.otus.exceptions.MyJUnitAssertException;
+
 public class BooleanAssert {
     private Boolean actual;
 
@@ -7,17 +9,17 @@ public class BooleanAssert {
         this.actual = actual;
     }
 
-    public BooleanAssert isTrue() throws Exception {
+    public BooleanAssert isTrue() {
         return isEqualTo(true);
     }
 
-    public BooleanAssert isFalse() throws Exception {
+    public BooleanAssert isFalse() {
         return isEqualTo(false);
     }
 
-    public BooleanAssert isEqualTo(Boolean expected) throws Exception {
+    public BooleanAssert isEqualTo(Boolean expected) {
         if (actual.compareTo(expected) != 0) {
-            throw new Exception(actual + " not equal " + expected);
+            throw new MyJUnitAssertException(actual + " not equal " + expected);
         }
         return this;
     }

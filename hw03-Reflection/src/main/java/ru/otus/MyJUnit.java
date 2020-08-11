@@ -4,6 +4,7 @@ import ru.otus.annotations.DisplayName;
 import ru.otus.annotations.Test;
 import ru.otus.annotations.After;
 import ru.otus.annotations.Before;
+import ru.otus.exceptions.MyJUnitAssertException;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
@@ -72,10 +73,13 @@ public class MyJUnit {
             for (Method afterMethod : afterMethods) {
                 result = afterMethod.invoke(obj);
             }
-
             return new TestExecutionResult(testName, true); // The test has passed
-        } catch (Exception e) {
-            return new TestExecutionResult(testName, false); // The test has failed
+
+        } catch (InvocationTargetException invocationTargetException) {
+            Throwable throwable = invocationTargetException.getCause();
+            return new TestExecutionResult(testName, false, throwable);
+        } catch (IllegalAccessException ex) {
+            return new TestExecutionResult(testName, false, ex);
         }
     }
 }

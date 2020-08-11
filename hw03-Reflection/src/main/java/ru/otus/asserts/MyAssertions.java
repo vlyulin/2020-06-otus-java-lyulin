@@ -1,6 +1,9 @@
 package ru.otus.asserts;
 
+import ru.otus.exceptions.MyJUnitAssertException;
+
 public class MyAssertions {
+
     public static IntegerAssert assertThat(int actual) {
         return AssertionsForClassTypes.assertThat(actual);
     }
@@ -11,15 +14,15 @@ public class MyAssertions {
         return AssertionsForClassTypes.assertThat(actual);
     }
 
-    public static void assertTrue(Boolean actual) throws Exception {
+    public static void assertTrue(Boolean actual) {
         if(!actual) {
-            throw new Exception("Not true.");
+            throw new MyJUnitAssertException("Not true.");
         }
     }
 
-    public static void assertEquals(Object expected, Object actual) throws Exception {
+    public static void assertEquals(Object expected, Object actual) {
         if(!objectsAreEqual(expected,actual)) {
-            throw new Exception("Objects are not equil.");
+            throw new MyJUnitAssertException("Objects are not equil.");
         }
     }
 
@@ -30,7 +33,7 @@ public class MyAssertions {
         return obj1.equals(obj2);
     }
 
-    public static <T> void assertThrows(Class<T> expectedType, Runnable executable) throws Exception {
+    public static <T> void assertThrows(Class<T> expectedType, Runnable executable) {
         try {
             executable.run();
         }
@@ -39,9 +42,9 @@ public class MyAssertions {
                 return;
             }
             else {
-                throw new Exception("Unexpected exception type thrown");
+                throw new MyJUnitAssertException("Unexpected exception type thrown");
             }
         }
-        throw new Exception("No exception happened.");
+        throw new MyJUnitAssertException("No exception happened.");
     }
 }

@@ -1,12 +1,21 @@
 package ru.otus;
 
+import ru.otus.exceptions.MyJUnitAssertException;
+
 public class TestExecutionResult {
     private String testName;
     private boolean result;
+    private Throwable exception;
 
     public TestExecutionResult(String testName, boolean result) {
         this.testName = testName;
         this.result = result;
+    }
+
+    public TestExecutionResult(String testName, boolean result, Throwable exception) {
+        this.testName = testName;
+        this.result = result;
+        this.exception = exception;
     }
 
     public String getTestName() {
@@ -19,6 +28,7 @@ public class TestExecutionResult {
 
     @Override
     public String toString() {
-        return testName + ": " + ((result) ? "SUCCESS" : "FAIL");
+        return testName + ": "
+                + ((result) ? "SUCCESS" : "FAIL\n\t" + exception.getMessage());
     }
 }

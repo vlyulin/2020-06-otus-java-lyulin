@@ -27,28 +27,27 @@ class DIYArrayListTest {
 
     @Test
     @DisplayName("Test size for empty DIYArray.")
-    //TODO: Как в JUnit сделано так, что не требуется добавлять "throws Exception" в тестовый метод?
-    public void testEmptyDIYArraySize() throws Exception {
+    public void testEmptyDIYArraySize() {
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>();
         assertThat(diyArrayList.size()).isEqualTo(0);
     }
 
     @Test
     @DisplayName("Проверка создания новый DIYArrayList на базе другой коллекции")
-    public void testConstructorWithCollection() throws Exception {
+    public void testConstructorWithCollection() {
         List<Double> diyArrayList = new DIYArrayList<>(reference20list);
         assertEquals(reference20list, diyArrayList);
     }
 
     @Test
     @DisplayName("Проверка exception создания DIYArrayList с отрицательной вместимостью")
-    public void testConstructorWithNegativeCapacity() throws Exception {
+    public void testConstructorWithNegativeCapacity() {
         assertThrows(IllegalArgumentException.class, () -> new DIYArrayList<Double>(-1));
     }
 
     @Test
     @DisplayName("Проверка расширения внутреннего массива при добавлении множества элементов")
-    void addElements() throws Exception {
+    void addElements() {
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>();
         double d = 1;
         for (int i = 0; i < 32; i++) {
@@ -61,7 +60,7 @@ class DIYArrayListTest {
 
     @Test
     @DisplayName("Тестирование iterator на пустой коллекции")
-    void testIteratorOnEmptyDIYList() throws Exception {
+    void testIteratorOnEmptyDIYList() {
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>();
         Iterator<Double> iterator = diyArrayList.iterator();
 
@@ -74,7 +73,7 @@ class DIYArrayListTest {
 
     @Test
     @DisplayName("Тестирование iterator на коллекции с одним элементом")
-    void testIteratorOnDIYListWithOneElement() throws Exception {
+    void testIteratorOnDIYListWithOneElement() {
 
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>(Arrays.asList(1.0));
         Iterator<Double> iterator = diyArrayList.iterator();
@@ -91,7 +90,7 @@ class DIYArrayListTest {
 
     @Test
     @DisplayName("Тестирование iterator на коллекции с несколькими элементами")
-    void testIteratorOnDIYArrayListWithSeveralElements() throws Exception {
+    void testIteratorOnDIYArrayListWithSeveralElements() {
 
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>(reference20list);
         Iterator<Double> iterator = diyArrayList.iterator();
@@ -104,7 +103,7 @@ class DIYArrayListTest {
 
     @Test
     @DisplayName("Проверка ListIterator на пустой коллекции")
-    void testListIteratorOnEmptyDIYList() throws Exception {
+    void testListIteratorOnEmptyDIYList() {
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>();
         ListIterator<Double> listIterator = diyArrayList.listIterator();
 
@@ -123,7 +122,7 @@ class DIYArrayListTest {
 
     @Test
     @DisplayName("Проверка ListIterator на коллекции с одним элементом")
-    void testListIteratorOnDIYListWithOneElement() throws Exception {
+    void testListIteratorOnDIYListWithOneElement() {
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>();
         diyArrayList.add(1.0);
         ListIterator<Double> listIterator = diyArrayList.listIterator();
@@ -146,7 +145,7 @@ class DIYArrayListTest {
 
     @Test
     @DisplayName("Тестирование ListIterator на прямой перебор коллекции с несколькими элементами")
-    void testListIteratorOnDIYArrayListWithSeveralElements() throws Exception {
+    void testListIteratorOnDIYArrayListWithSeveralElements() {
 
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>(reference20list);
         ListIterator<Double> iterator = diyArrayList.listIterator();
@@ -159,7 +158,7 @@ class DIYArrayListTest {
 
     @Test
     @DisplayName("Тестирование ListIterator на обратный перебор коллекции с несколькими элементами")
-    void testBackwardListIteratorOnDIYArrayListWithSeveralElements() throws Exception {
+    void testBackwardListIteratorOnDIYArrayListWithSeveralElements() {
 
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>(reference20list);
         ListIterator<Double> iterator = diyArrayList.listIterator(diyArrayList.size());
@@ -178,7 +177,7 @@ class DIYArrayListTest {
 
     @Test
     @DisplayName("Test Collections.addAll(Collection<? super T> c, T... elements)")
-    void testCollectionsAddAll() throws Exception {
+    void testCollectionsAddAll() {
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>();
         Collections.addAll(diyArrayList, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0,
                 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0);
@@ -187,7 +186,7 @@ class DIYArrayListTest {
 
     @Test
     @DisplayName("Test Collections.static <T> void copy(List<? super T> dest, List<? extends T> src)")
-    void testCollectionCopy() throws Exception {
+    void testCollectionCopy() {
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>();
 
         for (double d = 1; d < 21; d++) {
@@ -199,7 +198,7 @@ class DIYArrayListTest {
 
     @Test
     @DisplayName("Test Collections.static <T> void sort(List<T> list, Comparator<? super T> c)")
-    void testCollectionSort() throws Exception {
+    void testCollectionSort() {
         DIYArrayList<Double> diyArrayList = new DIYArrayList<>(reference20list);
         // Test reverse order sorting
         Collections.sort(diyArrayList, Collections.reverseOrder());

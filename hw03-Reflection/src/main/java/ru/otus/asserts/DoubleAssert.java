@@ -1,5 +1,7 @@
 package ru.otus.asserts;
 
+import ru.otus.exceptions.MyJUnitAssertException;
+
 public class DoubleAssert {
     private Double actual;
 
@@ -7,9 +9,9 @@ public class DoubleAssert {
         this.actual = actual;
     }
 
-    public DoubleAssert isEqualTo(Double expected) throws Exception {
+    public DoubleAssert isEqualTo(Double expected) {
         if (actual.compareTo(expected) != 0) {
-            throw new Exception(actual + " not equal " + expected);
+            throw new MyJUnitAssertException(actual + " not equal " + expected);
         }
         return this;
     }

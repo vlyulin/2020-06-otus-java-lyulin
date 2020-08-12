@@ -2,7 +2,7 @@ package ru.otus;
 
 import ru.otus.annotations.Log;
 
-public class TestLogging implements SomeInterface {
+public class SomeInterfaceImpl implements SomeInterface {
     @Log
     @Override
     public void calculation(int param) {

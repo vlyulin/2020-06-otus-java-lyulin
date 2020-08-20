@@ -38,7 +38,7 @@ public class Ioc {
         }
 
         private static List<Method> getMethodsAnnotatedWith(final Class<?> clazz, final Class<? extends Annotation> annotation) {
-            final List<Method> methods = new ArrayList<Method>();
+            final List<Method> methods = new ArrayList<>();
             for (final Method method : clazz.getDeclaredMethods()) {
                 if (method.isAnnotationPresent(annotation)) {
                     methods.add(method);
@@ -57,6 +57,7 @@ public class Ioc {
 
         private boolean isLogMethod(Method calledMethod) {
             for (Method method : classMethods) {
+
                 // имя метода, количество параметров и типы параметров должны совпадать
                 // требуется точное совпадение типов, подтипы не проверяются
                 if (method.getName().equals(calledMethod.getName())

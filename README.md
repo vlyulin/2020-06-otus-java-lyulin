@@ -8,8 +8,8 @@
 * [Модуль hw01-gradle](#Модуль-hw01-gradle)
 * [Модуль hw02-DIY-ArrayList](#Модуль_hw02-DIY-ArrayList)
 * [Модуль hw03-Reflection](#Модуль_hw023-Reflection)
-* [Модуль hw04-GCComparisons](#Модуль_hw04-GCComparisons)
 * [Модуль hw05-AOP](#Модуль_hw05-AOP)
+* [Модуль hw04-GCComparisons](#Модуль_hw04-GCComparisons)
 
 # Студент
 ФИО слушателя: Люлин Вадим Евгеньевич

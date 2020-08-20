@@ -3,6 +3,8 @@ include 'hw01-gradle'
 include 'hw02-DIY-ArrayList'
 include 'hw03-Reflection'
 include 'hw04-GCComparisons'
+include 'hw05-AOP'
+
 
 
 

@@ -10,11 +10,10 @@ import java.util.Stack;
  * Ячейка банкомата хранящая купюры определенного номинала
  * Реализует шаблон Chain of Responsibility
  */
-public class BaseATMCellHandler implements ATMCellHandler {
+public abstract class BaseATMCellHandler implements ATMCellHandler {
 
     private ATMCellHandler nextATMCellHandler;
 
-    // TODO: не нравится, что надо реализовывыать все методы, хотя надо только setNext
     @Override
     public Banknote getBanknote() {
         return null;

@@ -2,6 +2,7 @@
 # gradle/wrapper/
 
 **build**
+!build.gradle
 **out**
 buildSrc/
 !**buildSrc/src**

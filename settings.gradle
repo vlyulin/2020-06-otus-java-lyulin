@@ -5,6 +5,8 @@ include 'hw03-Reflection'
 include 'hw04-GCComparisons'
 include 'hw05-AOP'
 include 'hw06-ATM'
+include 'hw07-MessageHandler'
+
 
 
 

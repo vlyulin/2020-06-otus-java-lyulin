@@ -12,6 +12,7 @@
 * [Модуль hw05-AOP](#Модуль_hw05-AOP)
 * [Модуль hw06-ATM](#Модуль_hw06-ATM)
 * [Модуль hw07-MessageHandler](#Модуль_hw07-MessageHandler)
+* [Модуль hw08-JsonObjectWriter](#Модуль_hw08-JsonObjectWriter)
 
 # Студент
 ФИО слушателя: Люлин Вадим Евгеньевич
@@ -161,6 +162,31 @@ P.S.
 Обработчик сообщений
 Цель: Применить на практике шаблоны проектирования.
 Реализовать todo из модуля homework.
+
+## Модуль hw08-JsonObjectWriter <a name="Модуль_hw08-JsonObjectWriter"></a>
+Cвой json object writer
+Цель: Научиться сериализовывать объект в json, попрактиковаться в разборе структуры объекта.
+Напишите свой json object writer (object to JSON string) аналогичный gson на основе javax.json.
+
+Gson это делает так:
+Gson gson = new Gson();
+AnyObject obj = new AnyObject(22, "test", 10);
+String json = gson.toJson(obj);
+
+Сделайте так:
+MyGson myGson = new MyGson();
+AnyObject obj = new AnyObject(22, "test", 10);
+String myJson = myGson.toJson(obj);
+
+Должно получиться:
+AnyObject obj2 = gson.fromJson(myJson, AnyObject.class);
+System.out.println(obj.equals(obj2));
+
+Поддержите:
+- примитивные типы
+- массивы примитивных типов
+- коллекции (interface Collection)
+не забываться, что obj может быть null
 
 ### Преподаватели
 Сергей Петрелевич<br>

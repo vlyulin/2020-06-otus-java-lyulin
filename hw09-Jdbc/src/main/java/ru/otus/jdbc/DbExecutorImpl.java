@@ -1,12 +1,6 @@
 package ru.otus.jdbc;
 
-import ru.otus.core.model.User;
-
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Savepoint;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
@@ -27,7 +21,7 @@ public class DbExecutorImpl<T> implements DbExecutor<T> {
             pst.executeUpdate();
             try (ResultSet rs = pst.getGeneratedKeys()) {
                 rs.next();
-                return rs.getInt(1);
+                return rs.getLong(1);
             }
         } catch (SQLException ex) {
             connection.rollback(savePoint);

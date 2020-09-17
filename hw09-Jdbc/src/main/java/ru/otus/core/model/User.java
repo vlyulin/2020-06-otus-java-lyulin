@@ -2,6 +2,8 @@ package ru.otus.core.model;
 
 import ru.otus.anotations.Id;
 
+import java.util.Objects;
+
 /**
  * @author sergey
  * created on 03.02.19.
@@ -38,5 +40,20 @@ public class User {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id == user.id &&
+                age == user.age &&
+                Objects.equals(name, user.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, age);
     }
 }

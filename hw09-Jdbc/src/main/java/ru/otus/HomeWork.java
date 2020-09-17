@@ -4,17 +4,18 @@ import org.flywaydb.core.Flyway;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.otus.core.dao.UserDao;
+import ru.otus.core.model.Account;
 import ru.otus.core.model.User;
 import ru.otus.core.service.DbServiceUserImpl;
 import ru.otus.h2.DataSourceH2;
 import ru.otus.jdbc.DbExecutorImpl;
-import ru.otus.jdbc.mapper.EntityClassMetaDataImpl;
+import ru.otus.jdbc.dao.UserDaoJdbcMapper;
 import ru.otus.jdbc.mapper.JdbcMapper;
+import ru.otus.jdbc.mapper.JdbcMapperImpl;
 import ru.otus.jdbc.sessionmanager.SessionManagerJdbc;
 
 import javax.sql.DataSource;
 import java.util.Optional;
-
 
 public class HomeWork {
     private static final Logger logger = LoggerFactory.getLogger(HomeWork.class);
@@ -28,8 +29,9 @@ public class HomeWork {
 
 // Работа с пользователем
         DbExecutorImpl<User> dbExecutor = new DbExecutorImpl<>();
-        JdbcMapper<User> jdbcMapperUser = null; //
-        UserDao userDao = null; // = new UserDaoJdbcMapper(sessionManager, dbExecutor);
+        sessionManager.beginSession(); // delete
+        JdbcMapper<User> jdbcMapperUser = new JdbcMapperImpl<>(sessionManager, dbExecutor, User.class);
+        UserDao userDao = new UserDaoJdbcMapper(sessionManager, dbExecutor);
 
 // Код дальше должен остаться, т.е. userDao должен использоваться
         var dbServiceUser = new DbServiceUserImpl(userDao);
@@ -41,6 +43,12 @@ public class HomeWork {
                 () -> logger.info("user was not created")
         );
 // Работа со счетом
+        DbExecutorImpl<Account> dbExecutorAccount = new DbExecutorImpl<>();
+        sessionManager.beginSession();
+        JdbcMapper<Account> jdbcMapperAccount = new JdbcMapperImpl<Account>(sessionManager, dbExecutorAccount, Account.class);
+        Account account = new Account(39456, "Deposit", 1000.00f);
+        long accountId = jdbcMapperAccount.insert(account);
+        logger.info("Account id = " + accountId);
     }
 
     private static void flywayMigrations(DataSource dataSource) {

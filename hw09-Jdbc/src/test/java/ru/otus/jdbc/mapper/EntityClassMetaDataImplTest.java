@@ -14,7 +14,7 @@ class EntityClassMetaDataImplTest {
 
     public static final String USER_CLASS_NAME = "User";
     public static final String USER_CLASS_CONSTRUCTOR_NAME = "ru.otus.core.model.User";
-    public static final String USER_ID_FIELD = "Id";
+    public static final String USER_ID_FIELD = "id";
     private final List<String> referenceFieldsList = Arrays.asList("id", "name", "age");
 
     @Test

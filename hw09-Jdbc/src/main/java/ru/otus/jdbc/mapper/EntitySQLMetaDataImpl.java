@@ -1,6 +1,5 @@
 package ru.otus.jdbc.mapper;
 
-
 import java.lang.reflect.Field;
 import java.util.List;
 
@@ -78,7 +77,7 @@ public class EntitySQLMetaDataImpl implements EntitySQLMetaData {
         stringBuilder.append("UPDATE ");
         stringBuilder.append(entityClassMetaData.getName().toUpperCase());
         stringBuilder.append(" SET ");
-        List<Field> fieldsList = entityClassMetaData.getAllFields();
+        List<Field> fieldsList = entityClassMetaData.getFieldsWithoutId();
         String prefix = "";
         for(Field field: fieldsList) {
             stringBuilder.append(prefix);

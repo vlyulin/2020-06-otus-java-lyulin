@@ -5,4 +5,5 @@ public interface Versions {
     String Mockito = "3.4.0";
     String MockitojUnit = "3.3.3";
     String Gson = "2.8.6";
+    String flyway = "6.4.4";
 }

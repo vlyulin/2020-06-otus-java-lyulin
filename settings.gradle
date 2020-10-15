@@ -8,11 +8,8 @@ include 'hw06-ATM'
 include 'hw07-MessageHandler'
 include 'hw08-JsonObjectWriter'
 include 'hw09-Jdbc'
-
-
-
-
-
-
-
+include 'hw10-Hibernate'
+include 'hw11-MyCache'
+include 'hw12-WebServer'
+include 'hw13-DI'
 

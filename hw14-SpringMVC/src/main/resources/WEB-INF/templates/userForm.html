@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${user.id == 0}?'Пользователь:' + user.name: 'Новый пользователь'"></title>
+
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <style>
+        body {
+            padding: 0 20px;
+        }
+    </style>
+</head>
+
+<!--class="m-a-4"-->
+<body>
+
+    <h4 th:if="${user.id == 0}">Создать нового пользователя</h4>
+    <h4 th:unless="${user.id == 0}">Изменить: ${user.name}</h4>
+
+<div>
+    <fieldset th:if="${#fields.hasErrors('${user.*}')}" class="text-warning">
+        <legend>Some errors appeared !</legend>
+        <ul>
+            <li th:each="err : ${#fields.errors('user.*')}" th:text="${err}"></li>
+        </ul>
+    </fieldset>
+</div>
+
+<div class="table-responsive-sm">
+    <form action="#" th:action="@{/user/edit}" th:object="${user}" th:method="post">
+        <div th:class="${#fields.hasErrors('id')} ? 'form-group has-error' : 'form-group'">
+            <label class="control-label">Id</label>
+            <input class="form-control" type="number" th:field="*{id}" readonly style="width: 10%"/>
+        </div>
+        <div th:class="${#fields.hasErrors('name')} ? 'form-group has-error' : 'form-group'">
+            <label>Имя</label>
+            <input class="form-control" type="text" th:field="*{name}" style="width: 30%"/>
+        </div>
+        <div th:class="${#fields.hasErrors('age')} ? 'form-group has-error' : 'form-group'">
+            <label>Возраст</label>
+            <input class="form-control" type="number" th:field="*{age}" style="width: 30%"/>
+        </div>
+        <div th:class="${#fields.hasErrors('login')} ? 'form-group has-error' : 'form-group'">
+            <label>Логин</label>
+            <input class="form-control" type="text" th:field="*{login}" style="width: 30%"/>
+        </div>
+        <div th:class="${#fields.hasErrors('password')} ? 'form-group has-error' : 'form-group'">
+            <label>Пароль</label>
+            <input class="form-control" type="text" th:field="*{password}" style="width: 30%"/>
+        </div>
+
+<!--        window.location='/user/list';return false; -->
+        <button class="btn btn-primary m-t-1" type="submit" name="action" value="cancel">Назад</button>
+        <button class="btn btn-primary m-t-1" type="reset" name="reset"  value="reset">Очистить</button>
+        <button class="btn btn-primary m-t-1" type="submit" name="action" value="submit">Сохранить</button>
+    </form>
+</div>
+</body>
+</html>

@@ -79,37 +79,6 @@ class MyCacheTest {
         verify(listener, Mockito.times(1)).notify(KEY, VALUE, MyCache.PUT_ACTION);
     }
 
-//    @Test
-//    @DisplayName("Сброс кэша при недостатке памяти")
-//    // для единичного запуска метода установить для соответствующей конфигурации
-//    // VM параметры -Xms8m -Xmx8m
-//    void cacheDischargingOnLackOfSpace() {
-//        // через listener поверяется наличие хранилища в кэше
-//        // если объект хранилища удален, то listener не вызывается
-//        HwListener<String, User> listener = mock(HwListener.class);
-//        HwCache<String, User> hwCache = new MyCache<>();
-//        hwCache.addListener(listener);
-//
-//        User user = getDummyUser(1, VERY_LONG_USER_NAME, 74);
-//        hwCache.put(String.valueOf(user.getId()),user);
-//        // Проверяем, что был вызов listener
-//        verify(listener, Mockito.times(1)).notify(String.valueOf(user.getId()), user, MyCache.PUT_ACTION);
-//        hwCache.removeListener(listener);
-//
-//        for(long idx = 2; idx < GcThreshold; idx++ ) {
-//            User nextUser = getDummyUser(idx, VERY_LONG_USER_NAME, ThreadLocalRandom.current().nextInt(16, 120 + 1));
-//            hwCache.put(String.valueOf(idx), nextUser);
-//        }
-//
-//        // Есть надежда, что Gc уничтожил хранилище в кэше
-//        // Проверяем
-//        HwListener<String, User> anotherListener = mock(HwListener.class);
-//        hwCache.addListener(anotherListener);
-//        hwCache.put(String.valueOf(user.getId()),user);
-//        // Хранилища нет, вызова listener не должно было быть
-//        verify(anotherListener, Mockito.times(0)).notify(String.valueOf(user.getId()), user, MyCache.PUT_ACTION);
-//    }
-
     private User getDummyUser(long user_id, String user_name, int age) {
         User user = new User(user_id, user_name, age);
         // Телефоны

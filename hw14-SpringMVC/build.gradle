@@ -27,6 +27,7 @@ dependencies {
     implementation("org.springframework:spring-web")
     implementation("org.thymeleaf:thymeleaf")
     implementation("org.thymeleaf:thymeleaf-spring5")
+    implementation 'junit:junit:4.12'
     providedCompile("javax.servlet:javax.servlet-api")
 
     testImplementation("org.junit.jupiter:junit-jupiter-engine")
@@ -39,6 +40,7 @@ dependencies {
 
     runtimeOnly 'com.h2database:h2'
     compile group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
+    compile group: 'org.hibernate.validator', name: 'hibernate-validator', version: '6.1.6.Final'
 }
 
 test {

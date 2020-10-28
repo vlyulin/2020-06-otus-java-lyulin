@@ -31,7 +31,7 @@ public class UserController {
         List<User> users = userDao.findByMask(null, null,null);
         model.addAttribute("searchForm", new SearchForm());
         model.addAttribute("users", users);
-        return "userList.html";
+        return "userList";
     }
 
     @PostMapping({"/user/search"})
@@ -41,7 +41,7 @@ public class UserController {
                 searchForm.getName(),
                 searchForm.getLogin());
         model.addAttribute("users", users);
-        return "userList.html";
+        return "userList";
     }
 
     @GetMapping("/user/edit/{id}")
@@ -49,7 +49,7 @@ public class UserController {
         Optional<User> optuser = userDao.findById(id);
         if (optuser.isPresent()) {
             ModelAndView modelAndView = new ModelAndView();
-            modelAndView.setViewName("userForm.html");
+            modelAndView.setViewName("userForm");
             User user = optuser.get();
             modelAndView.addObject("user", user);
             return modelAndView;
@@ -61,19 +61,20 @@ public class UserController {
     @GetMapping("/user/new")
     public ModelAndView editUserView() throws NotFoundException {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("userForm.html");
+        modelAndView.setViewName("userForm");
         modelAndView.addObject("user", new User());
         return modelAndView;
     }
 
     // http://forum.thymeleaf.org/Fields-object-functions-Spring-td3302513.html#a3304174
+    // https://stackoverflow.com/questions/8756768/annotations-from-javax-validation-constraints-not-working
     @PostMapping(value = "/user/edit", params = "action=submit")
     public ModelAndView editUserAction(@Valid @ModelAttribute("user") User userView, BindingResult errors, Model model) throws NotFoundException {
 
         ModelAndView modelAndView = new ModelAndView();
 
         if(errors.hasErrors()) {
-                modelAndView.setViewName("userForm.html");
+                modelAndView.setViewName("userForm");
                 modelAndView.addObject("user", userView);
                 return modelAndView;
         }
@@ -106,4 +107,5 @@ public class UserController {
         modelAndView.setViewName("redirect:/user/list");
         return modelAndView;
     }
+
 }

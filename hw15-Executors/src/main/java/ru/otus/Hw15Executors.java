@@ -57,7 +57,7 @@ public class Hw15Executors {
     }
 
     public void start() throws InterruptedException {
-        Monitor monitor = new Monitor(lock, threadsNumber);
+        Monitor monitor = new Monitor(threadsNumber);
         for (int priority = 0; priority < threadsNumber; priority++) {
             Counter counter = new Counter(monitor, priority, initialValue, maxValue, increment);
             Thread thread = new Thread(() -> counter.go());

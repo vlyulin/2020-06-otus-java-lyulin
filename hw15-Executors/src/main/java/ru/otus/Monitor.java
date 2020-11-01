@@ -7,17 +7,11 @@ import java.util.concurrent.locks.Lock;
 
 public class Monitor {
     private static final Logger logger = LoggerFactory.getLogger(Monitor.class);
-    private final Lock lock;
     private final int maxThreads;
     private int currentPriority = 0;
 
-    public Monitor(Lock lock, int maxThreads) {
-        this.lock = lock;
+    public Monitor(int maxThreads) {
         this.maxThreads = maxThreads;
-    }
-
-    public Lock getLock() {
-        return lock;
     }
 
     public boolean isMyQueue(int priority) {

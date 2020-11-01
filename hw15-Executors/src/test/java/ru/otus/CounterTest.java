@@ -41,7 +41,7 @@ class CounterTest {
 
     @Test
     void testWrongZeroIncrementParameter() {
-        Monitor monitor = new Monitor(new ReentrantLock(), 1);
+        Monitor monitor = new Monitor(1);
         RuntimeException thrown = assertThrows(RuntimeException.class, () -> {
             new Counter(monitor, PRIORITY, 1, 3, 0);
         });
@@ -50,7 +50,7 @@ class CounterTest {
 
     @Test
     void testWrongNegativeIncrementParameter() {
-        Monitor monitor = new Monitor(new ReentrantLock(), 1);
+        Monitor monitor = new Monitor(1);
         RuntimeException thrown = assertThrows(RuntimeException.class, () -> {
             new Counter(monitor, PRIORITY, 1, 3, -1);
         });
@@ -59,7 +59,7 @@ class CounterTest {
 
     @Test
     void testWrongPositiveIncrementParameter() {
-        Monitor monitor = new Monitor(new ReentrantLock(), 1);
+        Monitor monitor = new Monitor(1);
         RuntimeException thrown = assertThrows(RuntimeException.class, () -> {
             new Counter(monitor, PRIORITY, -1, -3, 1);
         });
@@ -68,7 +68,7 @@ class CounterTest {
 
     @Test
     void testDirectCounting() {
-        Monitor monitor = new Monitor(new ReentrantLock(), 1);
+        Monitor monitor = new Monitor(1);
         Counter counter = new Counter(monitor, PRIORITY, 1, 3, 1);
         counter.go();
 
@@ -78,7 +78,7 @@ class CounterTest {
 
     @Test
     void testReverseCounting() {
-        Monitor monitor = new Monitor(new ReentrantLock(), 1);
+        Monitor monitor = new Monitor(1);
         Counter counter = new Counter(monitor, PRIORITY, -1, -3, -1);
         counter.go();
 

@@ -21,6 +21,7 @@
 * [Модуль hw14-SpringMVC](#Модуль_hw14-SpringMVC)
 * [Модуль hw15-Executors](#Модуль_hw15-Executors)
 * [Модуль hw16-MessageSystem](#Модуль_hw16-MessageSystem)
+* [Модуль hw17-MicroServices](#Модуль_hw17-MicroServices)
 
 # Студент
 ФИО слушателя: Люлин Вадим Евгеньевич
@@ -342,6 +343,24 @@ MessageSystem
 Как работать с вебсокетами смотрите пример из вебинара «Asynchronous Web applications».
 
 MessageSystem добавьте как модуль, по примеру из вебинара. 
+
+##Модуль hw17-MicroServices<a name="hw17-MicroServices"></a>
+
+Домашнее задание
+MessageServer
+Цель: Научиться разрабатывать сетевые приложения.
+Cервер из предыдущего ДЗ про MessageSystem разделить на три приложения:
+▪ MessageServer
+▪ Frontend
+▪ DBServer
+
+- Сделать MessageServer сокет-сервером, Frontend и DBServer клиентами
+- Пересылать сообщения с Frontend на DBService через MessageServer
+- Запустить приложение с двумя Frontend и двумя DBService (но на одной базе данных) на разных портах
+- Frontend и DBService запускать "руками"
+
+- По желанию, можно сделать запуск Frontend и DBServer из MessageServer
+- Такой запуск должен быть "отчуждаемый", т.е. "сборка" должна запускаться на другом компьютере без особых хлопот.
 
 ### Преподаватели
 Сергей Петрелевич<br>

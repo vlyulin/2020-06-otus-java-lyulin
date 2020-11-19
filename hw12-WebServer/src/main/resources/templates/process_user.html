@@ -1,9 +1,4 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!--<style>-->
-<!--    label,input{float:left}-->
-<!--    label,input[type="submit"]{clear:left}-->
-<!--    label{width:70px}-->
-<!--</style>-->
 <head>
     <#if user.name??>
         <title>Пользователь: ${user.name}</title>
@@ -30,8 +25,15 @@
             const login = userLoginTextBox.value;
             const password = userPasswordTextBox.value;
 
-            fetch('/api/user/'+id, {
-                method: "POST",
+            console.log('saveUser fetch');
+            const url = '/api/user/'+id;
+            fetch( url, {
+                method: 'POST',
+                mode: 'no-cors',
+                cache: 'no-cache',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
                 body: JSON.stringify({
                     id: id,
                     name: name,
@@ -41,66 +43,51 @@
                 })
             })
             .then(response => response.json())
-                .then(user => {
-                    const text = '<td>' + user.id + '</td>\n' +
-                        '        <td>' + user.name + '</td>\n' +
-                        '        <td>' + user.login + '</td>\n' +
-                        '        <td>' + user.password + '</td>';
-                });
-
+            .then(data => console.log(data))
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+            });
             console.log('after save');
-            // console.log('saveUser redirect');
-            // window.location.href = "/users";
-            // window.location.reload();
-            // window.location.replace = '/users';
-            // window.location.replace("http://www.w3schools.com");
-        }
-
-        function f() {
-            saveUser();
             window.location.assign('/users');
         }
     </script>
 </head>
 
-<body class="m-a-1">
+<body class="m-a-4">
 <#if user.name??>
     <h4>Изменить: ${user.name}</h4>
 <#else>
     <h4>Создать нового пользователя</h4>
 </#if>
 
-<!--<form>-->
-<!--    action="/api/user/${(user.id)!0}" method="post" enctype="multipart/form-data">-->
-<!--    myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>-->
-    <div class="form-group">
-        <label>Id</label>
-        <input type="text" id="userIdTextBox" name="id" value="${(user.id)!}" disabled/>
-    </div>
-    <div class="form-group">
-        <label>Имя</label>
-        <input type="text" id="userNameTextBox" name="name" value="${(user.name)!}"/>
-    </div>
-    <div class="form-group">
-        <label>Возраст</label>
-        <input type="number" id="userAgeTextBox" name="age" value="${(user.age)!}"/>
-    </div>
-    <div class="form-group">
-        <label>Логин</label>
-        <input type="text" id="userLoginTextBox" name="login" value="${(user.login)!}"/>
-    </div>
-    <div class="form-group">
-        <label>Пароль</label>
-        <input type="text" id="userPasswordTextBox" name="password" value="${(user.password)!}"/>
-    </div>
+<div class="table-responsive-sm">
+<!--    <form onsubmit="saveUser()" >-->
+        <!--    myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>-->
+        <div class="form-group">
+            <label>Id</label>
+            <input class="form-control" type="text" id="userIdTextBox" name="id" value="${(user.id)!}" disabled style="width: 10%"/>
+        </div>
+        <div class="form-group">
+            <label>Имя</label>
+            <input class="form-control" type="text" id="userNameTextBox" name="name" value="${(user.name)!}" style="width: 30%"/>
+        </div>
+        <div class="form-group">
+            <label>Возраст</label>
+            <input class="form-control" type="number" id="userAgeTextBox" name="age" value="${(user.age)!}" style="width: 30%"/>
+        </div>
+        <div class="form-group">
+            <label>Логин</label>
+            <input class="form-control" type="text" id="userLoginTextBox" name="login" value="${(user.login)!}" style="width: 30%"/>
+        </div>
+        <div class="form-group">
+            <label>Пароль</label>
+            <input class="form-control" type="text" id="userPasswordTextBox" name="password" value="${(user.password)!}" style="width: 30%"/>
+        </div>
 
-<!--    <button class="btn btn-primary m-t-1" type="reset" value="Reset">Reset</button>-->
-    <!-- javascript:window.location='http://stackoverflow.com'; -->
-<!--    <#if myOptionalVar??>when-present<#else>when-missing</#if>&ndash;&gt;-->
-<!--    <button class="btn btn-primary m-t-1" type="cancel" onclick="window.location='/users';return false;">Cancel</button>-->
-<!--    <button class="btn btn-primary m-t-1" type="reset">Очистить</button>-->
-<!--    <button class="btn btn-primary m-t-1" onclick="saveUser(); window.location.href = '/users'">Сохранить</button>-->
-<button class="btn btn-primary m-t-1" onclick="f()">Сохранить</button>
-<!--</form>-->
+        <button class="btn btn-primary m-t-1" type="cancel" onclick="window.location='/users';return false;">Cancel</button>
+        <button class="btn btn-primary m-t-1" type="reset">Очистить</button>
+        <input class="btn btn-primary m-t-1"  onclick="saveUser()" value="Сохранить">
+<!--    </form>-->
+</div>
 </body>
 </html>

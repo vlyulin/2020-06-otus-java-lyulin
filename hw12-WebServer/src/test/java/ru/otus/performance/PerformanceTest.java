@@ -106,14 +106,19 @@ public class PerformanceTest {
     private void fillDatabase(DBServiceUser dbServiceUser, int count, long[] ids ) {
         logger.info("Заполнение базы тестовыми пользователями");
         for(int idx = 0; idx < count; idx++ ) {
-            User nextUser = getDummyUser(0, USER_NAME + idx, ThreadLocalRandom.current().nextInt(16, 120 + 1));
+            String userName = USER_NAME + idx;
+            User nextUser = getDummyUser(0,
+                    userName,
+                    ThreadLocalRandom.current().nextInt(16, 120 + 1),
+                    userName,
+                    userName);
             ids[idx] = dbServiceUser.saveUser(nextUser);
         }
         logger.info("Завершение заполнения базы тестовыми пользователями.");
     }
     
-    private User getDummyUser(long user_id, String user_name, int age) {
-        User user = new User(user_id, user_name, age);
+    private User getDummyUser(long user_id, String user_name, int age, String login, String password) {
+        User user = new User(user_id, user_name, age, login, password);
         // Телефоны
         PhoneDataSet phone1 = new PhoneDataSet(user, "+7 (916) 123-12-12");
         PhoneDataSet phone2 = new PhoneDataSet(user, "+7 (916) 444-33-12");

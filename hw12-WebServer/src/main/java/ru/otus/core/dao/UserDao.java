@@ -12,7 +12,7 @@ public interface UserDao {
 
     Optional<User> findByLogin(String login);
 
-    List<User> findByMask(String name, String login);
+    List<User> findByMask(String id, String name, String login);
 
     long insertUser(User user);
 

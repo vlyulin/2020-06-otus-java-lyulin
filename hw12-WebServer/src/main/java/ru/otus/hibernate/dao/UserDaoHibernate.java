@@ -20,6 +20,9 @@ import java.util.Optional;
 public class UserDaoHibernate implements UserDao {
 
     private static final Logger logger = LoggerFactory.getLogger(UserDaoHibernate.class);
+    public static final String ID_FIELD = "id";
+    public static final String NAME_FIELD = "name";
+    public static final String LOGIN_FIELD = "login";
 
     private final SessionManagerHibernate sessionManager;
 
@@ -102,20 +105,27 @@ public class UserDaoHibernate implements UserDao {
     }
 
     @Override
-    public List<User> findByMask(String name, String login) {
+    public List<User> findByMask(String id, String name, String login) {
         DatabaseSessionHibernate currentSession = sessionManager.getCurrentSession();
         EntityGraph entityGraph = currentSession.getHibernateSession().getEntityGraph("user-entity-graph");
 
         Session session = currentSession.getHibernateSession();
+
+        // TODO: наверное, можно и проще обрабатывать IS NULL для числовых полей
+        long longId = 0;
+        if(id != null && (id.isBlank() || id.isEmpty())) { id = null; }
+        if(id != null) { longId = Long.valueOf(id); }
         if(name != null && (name.isBlank() || name.isEmpty())) { name = null; }
         if(login != null && (login.isBlank() || login.isEmpty())) { login = null; }
         Query<User> query = session.createQuery(
-                "from User u where (:name is null or u.name like :name) " +
+                "from User u where " +
+                        "(:id is null or u.id = :longId) " +
+                        "and (:name is null or u.name like :name) " +
                         "and (:login is null or u.login like :login)", User.class);
-        query.setParameter("name", name);
-        query.setParameter("login", login);
-        // TODO: uncomment
-//        query.setParameter("login", null);
+        query.setParameter(ID_FIELD, id);
+        query.setParameter("longId", longId);
+        query.setParameter(NAME_FIELD, name);
+        query.setParameter(LOGIN_FIELD, login);
 
         query.setHint("javax.persistence.loadgraph",entityGraph);
         return query.getResultList();

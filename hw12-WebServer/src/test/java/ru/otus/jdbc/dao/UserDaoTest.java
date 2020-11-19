@@ -55,7 +55,7 @@ public class UserDaoTest {
         User userForInsert = getDummyUser(USER_ID, "TestUser", 34);
         DatabaseSessionHibernate databaseSessionHibernate = sessionManager.getCurrentSession();
         Session session = databaseSessionHibernate.getHibernateSession();
-        final long[] insertedUserId = new long[1]; // Не возвращает id
+        final long[] insertedUserId = new long[1];
         session.doWork(connection -> {
             insertedUserId[0] = UserUtils.insertUser(connection, userForInsert);
         });

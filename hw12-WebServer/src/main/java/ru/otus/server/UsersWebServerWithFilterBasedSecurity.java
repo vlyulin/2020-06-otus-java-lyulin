@@ -36,6 +36,7 @@ public class UsersWebServerWithFilterBasedSecurity extends UsersWebServerSimple 
         servletContextHandler.addServlet(new ServletHolder(new LoginServlet(templateProcessor, authService)), "/login");
         AuthorizationFilter authorizationFilter = new AuthorizationFilter();
         Arrays.stream(paths).forEachOrdered(path -> servletContextHandler.addFilter(new FilterHolder(authorizationFilter), path, null));
+
         return servletContextHandler;
     }
 }

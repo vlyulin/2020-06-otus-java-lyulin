@@ -103,17 +103,20 @@ public class UserUtils {
         for (AddressDataSet address : user.getAddresses()) {
             insertAddress(connection, address.getId(), user.getId(), address.getStreet());
         }
-        return insertRecord(connection, user.getId(), user.getName(), user.getAge());
+        return insertRecord(connection, user.getId(), user.getName(), user.getAge(), user.getLogin(), user.getPassword());
     }
 
-    private static long insertRecord(Connection connection, long id, String name, int age) throws SQLException {
+    private static long insertRecord(Connection connection, long id, String name, int age, String login, String password) throws SQLException {
         try (PreparedStatement pst = connection.prepareStatement(
-                "insert into USERS(id, name, age) values (?, ?, ?)",
+                "insert into USERS(id, name, age, login, password) values (?, ?, ?, ?, ?)",
                 Statement.RETURN_GENERATED_KEYS
         )) {
             pst.setLong(1, id);
             pst.setString(2, name);
             pst.setInt(3, age);
+            pst.setString(4, login);
+            pst.setString(5, password);
+
             int rowCount = pst.executeUpdate(); //Блокирующий вызов
             if (rowCount == 0) {
                 throw new SQLException("Creating user failed, no rows affected.");

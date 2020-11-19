@@ -1,0 +1,93 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <#if user.name??>
+        <title>Пользователь: ${user.name}</title>
+    <#else>
+        <title>Новый пользователь</title>
+    </#if>
+
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <script>
+        function saveUser() {
+
+            console.log('saveUser');
+
+            const userIdTextBox = document.getElementById('userIdTextBox');
+            const userNameTextBox = document.getElementById('userNameTextBox');
+            const userAgeTextBox = document.getElementById('userAgeTextBox');
+            const userLoginTextBox = document.getElementById('userLoginTextBox');
+            const userPasswordTextBox = document.getElementById('userPasswordTextBox');
+
+            const id = userIdTextBox.value;
+            const name = userNameTextBox.value;
+            const age = userAgeTextBox.value;
+            const login = userLoginTextBox.value;
+            const password = userPasswordTextBox.value;
+
+            console.log('saveUser fetch');
+            const url = '/api/user/'+id;
+            fetch( url, {
+                method: 'POST',
+                mode: 'no-cors',
+                cache: 'no-cache',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    id: id,
+                    name: name,
+                    age: age,
+                    login: login,
+                    password: password
+                })
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+            });
+            console.log('after save');
+            window.location.assign('/users');
+        }
+    </script>
+</head>
+
+<body class="m-a-4">
+<#if user.name??>
+    <h4>Изменить: ${user.name}</h4>
+<#else>
+    <h4>Создать нового пользователя</h4>
+</#if>
+
+<div class="table-responsive-sm">
+<!--    <form onsubmit="saveUser()" >-->
+        <!--    myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>-->
+        <div class="form-group">
+            <label>Id</label>
+            <input class="form-control" type="text" id="userIdTextBox" name="id" value="${(user.id)!}" disabled style="width: 10%"/>
+        </div>
+        <div class="form-group">
+            <label>Имя</label>
+            <input class="form-control" type="text" id="userNameTextBox" name="name" value="${(user.name)!}" style="width: 30%"/>
+        </div>
+        <div class="form-group">
+            <label>Возраст</label>
+            <input class="form-control" type="number" id="userAgeTextBox" name="age" value="${(user.age)!}" style="width: 30%"/>
+        </div>
+        <div class="form-group">
+            <label>Логин</label>
+            <input class="form-control" type="text" id="userLoginTextBox" name="login" value="${(user.login)!}" style="width: 30%"/>
+        </div>
+        <div class="form-group">
+            <label>Пароль</label>
+            <input class="form-control" type="text" id="userPasswordTextBox" name="password" value="${(user.password)!}" style="width: 30%"/>
+        </div>
+
+        <button class="btn btn-primary m-t-1" type="cancel" onclick="window.location='/users';return false;">Cancel</button>
+        <button class="btn btn-primary m-t-1" type="reset">Очистить</button>
+        <input class="btn btn-primary m-t-1"  onclick="saveUser()" value="Сохранить">
+<!--    </form>-->
+</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Пользователи</title>
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #gridContainer {padding: 20px;}
+        .row > div { border: 1px solid lightgrey; padding: 10px;
+            background-color: aliceblue; margin: 5px 0; }
+        body {
+             padding: 0 20px;
+        }
+        .my {
+            margin-right:20px;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="/app.js"></script>
+</head>
+
+<body onLoad="connect()">
+    <noscript>
+        <h2 style="color: #ff0000">
+            Seems your browser doesn't support Javascript!<br>
+            Websocket relies on Javascript being enabled. <br>
+            Please enable Javascript and reload this page!<br>
+        </h2>
+    </noscript>
+
+    <h1>Пользователи</h1>
+
+    <p><b>Фильтр:</b></p>
+    <div class="col-md-6">
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="search-id-input" class="m-t-1">Id:</label>
+                <input type="text" id="search-id-input" value="" placeholder="id пользователя" class="m-t-1">
+                <label for="search-name-input" class="m-t-1">Имя:</label>
+                <input type="text" id="search-name-input" value="" placeholder="имя пользователя" class="m-t-1">
+                <label for="search-login-input" class="m-t-1">Логин:</label>
+                <input type="text" id="search-login-input" value="" placeholder="login пользователя" class="m-t-1">
+            </div>
+        </form>
+        <button id="findByMask" type="submit" disabled="disabled" class="btn btn-primary m-t-1">Найти</button>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <button id="newUser" type="submit" class="btn btn-primary m-t-1">Создать</button>
+    </div>
+
+    <div> <!-- Operation Status -->
+        <div>
+            <table id="errorsTable" class="table table-striped">
+                <thead>
+                <tr>
+                    <th style="color: #ff0000">Operation status:</th>
+                </tr>
+                </thead>
+                <tbody id="errorLines"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="table-responsive-sm" class="row" style="margin-top: 30px;">
+        <table class="table table-striped table-bordered table-sm table-hover" width="60%">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Имя</th>
+                    <th>Логин</th>
+                    <th>Пароль</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="usersTable">
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,14 +1,14 @@
 package ru.otus.messagesystem;
 
-import ru.otus.core.dao.UserDao;
-import ru.otus.core.model.User;
+import ru.otus.frontend.core.dao.UserDao;
+import ru.otus.frontend.core.model.User;
 import ru.otus.messagesystem.message.Message;
 import ru.otus.messagesystem.message.MessageBuilder;
 import ru.otus.messagesystem.message.MessageHelper;
-import ru.otus.messagesystem.message.MessageType;
 import ru.otus.messagesystem.messagetypes.OperationStatusMsgData;
-import ru.otus.messagesystem.messagetypes.SearchFormMsgData;
 import ru.otus.messagesystem.messagetypes.UserMsgData;
+import ru.otus.messagesystem.message.MessageType;
+import ru.otus.messagesystem.messagetypes.SearchFormMsgData;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;

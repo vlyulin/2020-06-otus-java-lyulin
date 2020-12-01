@@ -1,6 +1,6 @@
 package ru.otus.messagesystem.messagetypes;
 
-import ru.otus.core.model.User;
+import ru.otus.frontend.core.model.User;
 import ru.otus.messagesystem.client.ResultDataType;
 
 import java.io.Serializable;

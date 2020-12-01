@@ -3,6 +3,7 @@
 
 **build**
 !build.gradle
+!*Builder.java
 **out**
 buildSrc/
 !**buildSrc/src**

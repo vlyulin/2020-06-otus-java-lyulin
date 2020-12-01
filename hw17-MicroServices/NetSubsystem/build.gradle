@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group 'ru.otus'
+version 'unspecified'
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(':hw17-MicroServices:MessageSystem')
+
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation("ch.qos.logback:logback-classic")
+    implementation("com.google.code.gson:gson:${Versions.gson}")
+    implementation 'javax.json:javax.json-api'
+
+    testImplementation("org.junit.jupiter:junit-jupiter-engine")
+    testImplementation("org.junit.jupiter:junit-jupiter-params")
+    testImplementation("org.assertj:assertj-core")
+    testImplementation("org.mockito:mockito-junit-jupiter")
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

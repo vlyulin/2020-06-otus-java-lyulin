@@ -1,8 +1,8 @@
 package ru.otus.messagesystem;
 
 import org.springframework.beans.factory.annotation.Qualifier;
-import ru.otus.core.model.SearchForm;
-import ru.otus.core.model.User;
+import ru.otus.frontend.core.model.SearchForm;
+import ru.otus.frontend.core.model.User;
 import ru.otus.messagesystem.client.MessageCallback;
 import ru.otus.messagesystem.client.MsClient;
 import ru.otus.messagesystem.message.Message;

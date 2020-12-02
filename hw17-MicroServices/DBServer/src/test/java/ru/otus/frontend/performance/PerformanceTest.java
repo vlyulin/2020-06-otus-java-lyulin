@@ -1,4 +1,8 @@
+<<<<<<< HEAD:hw17-MicroServices/DBServer/src/test/java/ru/otus/frontend/performance/PerformanceTest.java
 package ru.otus.dbserver.performance;
+=======
+package ru.otus.frontend.performance;
+>>>>>>> a8016c728a7fc683aeb2939e3b461a76577bd2f4:hw14-SpringMVC/src/test/java/ru/otus/performance/PerformanceTest.java
 
 import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.BeforeAll;

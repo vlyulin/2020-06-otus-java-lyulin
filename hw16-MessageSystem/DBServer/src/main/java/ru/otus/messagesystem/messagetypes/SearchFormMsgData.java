@@ -1,7 +1,7 @@
 package ru.otus.messagesystem.messagetypes;
 
 import com.google.gson.Gson;
-import ru.otus.frontend.core.model.SearchForm;
+import ru.otus.core.model.SearchForm;
 import ru.otus.messagesystem.client.ResultDataType;
 
 import java.io.IOException;

@@ -1,6 +1,6 @@
 package ru.otus.messagesystem;
 
-import ru.otus.frontend.core.dao.UserDao;
+import ru.otus.core.dao.UserDao;
 import ru.otus.messagesystem.message.Message;
 import ru.otus.messagesystem.message.MessageBuilder;
 import ru.otus.messagesystem.message.MessageHelper;

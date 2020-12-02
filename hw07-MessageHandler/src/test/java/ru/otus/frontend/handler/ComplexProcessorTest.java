@@ -1,17 +1,17 @@
-package ru.otus.frontend.handler;
+package ru.otus.handler;
 
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import ru.otus.frontend.Message;
-import ru.otus.frontend.history.MessageHistory;
-import ru.otus.frontend.listener.Listener;
-import ru.otus.frontend.listener.ListenerForHistory;
-import ru.otus.frontend.processor.LoggerProcessor;
-import ru.otus.frontend.processor.Processor;
-import ru.otus.frontend.processor.ProcessorChangeFields;
-import ru.otus.frontend.processor.ProxyLoggerProcessor;
-import ru.otus.frontend.processor.exceptions.ProxyLoggerException;
+import ru.otus.Message;
+import ru.otus.history.MessageHistory;
+import ru.otus.listener.Listener;
+import ru.otus.listener.ListenerForHistory;
+import ru.otus.processor.LoggerProcessor;
+import ru.otus.processor.Processor;
+import ru.otus.processor.ProcessorChangeFields;
+import ru.otus.processor.ProxyLoggerProcessor;
+import ru.otus.processor.exceptions.ProxyLoggerException;
 
 import java.util.ArrayList;
 import java.util.List;

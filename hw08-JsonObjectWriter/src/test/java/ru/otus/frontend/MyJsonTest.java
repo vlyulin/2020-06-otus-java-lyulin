@@ -1,10 +1,10 @@
-package ru.otus.frontend;
+package ru.otus;
 
 import com.google.gson.Gson;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import ru.otus.frontend.examples.AnyObject;
-import ru.otus.frontend.mygson.MyGson;
+import ru.otus.examples.AnyObject;
+import ru.otus.mygson.MyGson;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

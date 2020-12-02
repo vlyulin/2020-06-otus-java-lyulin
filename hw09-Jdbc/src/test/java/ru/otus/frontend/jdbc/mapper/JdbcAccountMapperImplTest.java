@@ -1,15 +1,15 @@
-package ru.otus.frontend.jdbc.mapper;
+package ru.otus.jdbc.mapper;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import ru.otus.frontend.core.model.Account;
-import ru.otus.frontend.jdbc.helpers.AccountUtils;
-import ru.otus.frontend.jdbc.helpers.DbUtils;
-import ru.otus.frontend.jdbc.DbExecutorImpl;
-import ru.otus.frontend.jdbc.sessionmanager.DatabaseSessionJdbc;
-import ru.otus.frontend.jdbc.sessionmanager.SessionManagerJdbc;
+import ru.otus.core.model.Account;
+import ru.otus.jdbc.helpers.AccountUtils;
+import ru.otus.jdbc.helpers.DbUtils;
+import ru.otus.jdbc.DbExecutorImpl;
+import ru.otus.jdbc.sessionmanager.DatabaseSessionJdbc;
+import ru.otus.jdbc.sessionmanager.SessionManagerJdbc;
 
 import javax.sql.DataSource;
 import java.sql.Connection;

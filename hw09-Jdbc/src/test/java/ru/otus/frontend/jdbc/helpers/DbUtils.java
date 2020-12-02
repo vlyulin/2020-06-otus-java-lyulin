@@ -1,7 +1,7 @@
-package ru.otus.frontend.jdbc.helpers;
+package ru.otus.jdbc.helpers;
 
 import org.flywaydb.core.Flyway;
-import ru.otus.frontend.h2.DataSourceH2;
+import ru.otus.h2.DataSourceH2;
 
 import javax.sql.DataSource;
 import java.sql.Connection;

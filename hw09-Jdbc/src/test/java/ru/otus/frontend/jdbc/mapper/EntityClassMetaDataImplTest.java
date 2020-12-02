@@ -1,8 +1,8 @@
-package ru.otus.frontend.jdbc.mapper;
+package ru.otus.jdbc.mapper;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import ru.otus.frontend.core.model.User;
+import ru.otus.core.model.User;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;

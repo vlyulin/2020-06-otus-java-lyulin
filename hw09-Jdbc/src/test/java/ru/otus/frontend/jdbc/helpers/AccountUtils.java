@@ -1,6 +1,6 @@
-package ru.otus.frontend.jdbc.helpers;
+package ru.otus.jdbc.helpers;
 
-import ru.otus.frontend.core.model.Account;
+import ru.otus.core.model.Account;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

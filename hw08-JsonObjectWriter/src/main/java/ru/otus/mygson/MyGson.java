@@ -1,6 +1,7 @@
 package ru.otus.mygson;
 
-import ru.otus.mygson.typehandlers.*;
+import ru.otus.mygson.typehandlers.TypeHandler;
+import ru.otus.mygson.typehandlers.TypeHandlersChain;
 
 public class MyGson {
 

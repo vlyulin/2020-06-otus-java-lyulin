@@ -6,10 +6,10 @@ import org.slf4j.LoggerFactory;
 import ru.otus.core.dao.UserDao;
 import ru.otus.core.model.User;
 import ru.otus.core.sessionmanager.SessionManager;
-import ru.otus.jdbc.DbExecutorImpl;
 import ru.otus.jdbc.mapper.JdbcMapper;
-import ru.otus.jdbc.mapper.JdbcMapperImpl;
 import ru.otus.jdbc.sessionmanager.SessionManagerJdbc;
+import ru.otus.jdbc.DbExecutorImpl;
+import ru.otus.jdbc.mapper.JdbcMapperImpl;
 
 import java.sql.Connection;
 import java.util.Optional;

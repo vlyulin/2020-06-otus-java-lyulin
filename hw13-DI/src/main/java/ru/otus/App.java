@@ -4,7 +4,6 @@ import ru.otus.appcontainer.AppComponentsContainerImpl;
 import ru.otus.appcontainer.api.AppComponentsContainer;
 import ru.otus.config.AppConfig;
 import ru.otus.services.GameProcessor;
-import ru.otus.services.GameProcessorImpl;
 
 /*
 В классе AppComponentsContainerImpl реализовать обработку, полученной в конструкторе конфигурации,

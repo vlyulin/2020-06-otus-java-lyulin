@@ -11,11 +11,11 @@ import ru.otus.core.model.PhoneDataSet;
 import ru.otus.core.model.User;
 import ru.otus.flyway.MigrationsExecutor;
 import ru.otus.flyway.MigrationsExecutorFlyway;
-import ru.otus.hibernate.HibernateUtils;
-import ru.otus.hibernate.dao.UserDaoHibernate;
 import ru.otus.hibernate.sessionmanager.DatabaseSessionHibernate;
 import ru.otus.hibernate.sessionmanager.SessionManagerHibernate;
 import ru.otus.jdbc.helpers.UserUtils;
+import ru.otus.hibernate.HibernateUtils;
+import ru.otus.hibernate.dao.UserDaoHibernate;
 
 import java.util.Arrays;
 import java.util.HashSet;

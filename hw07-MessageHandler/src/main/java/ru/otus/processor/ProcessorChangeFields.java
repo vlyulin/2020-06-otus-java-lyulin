@@ -4,7 +4,6 @@ import ru.otus.Message;
 import ru.otus.processor.exceptions.ChangeFieldProcessorException;
 import ru.otus.processor.exceptions.MethodInvokeProcessorException;
 import ru.otus.processor.exceptions.MethodNotFoundProcessorException;
-import ru.otus.processor.exceptions.ProcessorException;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

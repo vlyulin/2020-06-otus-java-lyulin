@@ -18,3 +18,13 @@ include 'hw16-MessageSystem'
 include 'hw16-MessageSystem:MessageSystem'
 include 'hw16-MessageSystem:DBServer'
 include 'hw16-MessageSystem:FrontEnd'
+include 'hw17-MicroServices'
+include 'hw17-MicroServices:MessageSystem'
+include 'hw17-MicroServices:DBServer'
+include 'hw17-MicroServices:FrontEnd'
+include 'hw17-MicroServices:Server'
+include 'hw17-MicroServices:NetSubsystem'
+include 'hw17-MicroServices:Common'
+
+
+

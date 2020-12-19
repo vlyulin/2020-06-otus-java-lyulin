@@ -19,7 +19,7 @@ public class MessageBuilder {
     }
 
     public static <T extends ResultDataType> Message buildMessage(String from, String to, MessageId sourceMessageId,
-                                                                     T data, MessageType msgType) {
+                                                                  T data, MessageType msgType) {
         return buildMessage(from, to, sourceMessageId, data, msgType, null);
     }
 

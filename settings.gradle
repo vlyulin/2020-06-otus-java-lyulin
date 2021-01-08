@@ -25,6 +25,12 @@ include 'hw17-MicroServices:FrontEnd'
 include 'hw17-MicroServices:Server'
 include 'hw17-MicroServices:NetSubsystem'
 include 'hw17-MicroServices:Common'
-
-
+include 'CourseWork'
+include 'CourseWork:MessageSystem'
+include 'CourseWork:DBServer'
+include 'CourseWork:FrontEnd'
+include 'CourseWork:Server'
+include 'CourseWork:NetSubsystem'
+include 'CourseWork:Common'
+include 'CourseWork:Chart'
 

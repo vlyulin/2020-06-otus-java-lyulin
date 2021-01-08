@@ -5,12 +5,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-// TODO: Delete public
 public class Serializers {
     private Serializers() {
     }
 
-    // TODO: delete public
     public static byte[] serialize(Object data) {
         try (ByteArrayOutputStream baos = new ByteArrayOutputStream();
              ObjectOutputStream os = new ObjectOutputStream(baos)) {
@@ -22,7 +20,6 @@ public class Serializers {
         }
     }
 
-    // TODO: delete public
     public static Object deserialize(byte[] data) {
         try (ByteArrayInputStream bis = new ByteArrayInputStream(data);
              ObjectInputStream is = new ObjectInputStream(bis)) {

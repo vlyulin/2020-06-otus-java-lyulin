@@ -1,0 +1,60 @@
+plugins {
+    id 'java'
+    id "org.flywaydb.flyway" version "6.4.4"
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+dependencies {
+
+//    implementation 'org.springframework.kafka:spring-kafka'
+
+    implementation project(':CourseWork:Common')
+    implementation project(':CourseWork:NetSubsystem')
+    implementation project(':CourseWork:MessageSystem')
+
+    implementation("org.springframework.boot:spring-boot-starter")
+    implementation("com.h2database:h2")
+    implementation("org.hibernate:hibernate-core")
+
+    implementation("ch.qos.logback:logback-classic")
+    implementation("com.google.code.gson:gson:${Versions.gson}")
+
+    implementation("com.h2database:h2")
+    implementation("org.hibernate:hibernate-core")
+    implementation('org.flywaydb:flyway-core')
+
+    implementation("org.javassist:javassist:3.24.0-GA")
+
+    implementation("org.springframework:spring-context")
+    implementation 'junit:junit:4.12'
+
+    testImplementation("org.junit.jupiter:junit-jupiter-engine")
+    testImplementation("org.junit.jupiter:junit-jupiter-params")
+    testImplementation("org.assertj:assertj-core")
+    testImplementation("org.mockito:mockito-junit-jupiter")
+
+    testCompile ("org.springframework:spring-test")
+    testCompile ("org.hamcrest:hamcrest-core")
+
+    runtimeOnly 'com.h2database:h2'
+    compile group: 'org.hibernate.validator', name: 'hibernate-validator', version: '6.1.6.Final'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.11.3'
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.with {
+        encoding = 'UTF-8'
+    }
+}
+

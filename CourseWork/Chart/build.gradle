@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.3.1.RELEASE'
+}
+
+group 'ru.otus'
+version '1.0'
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(':CourseWork:MessageSystem')
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    implementation 'org.springframework.boot:spring-boot-starter'
+    compile group: 'org.springframework.kafka', name: 'spring-kafka', version: '2.6.4'
+
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.springframework.boot:spring-boot-starter-websocket')
+
+    compile group: 'org.webjars', name: 'sockjs-client', version: '1.1.2'
+    compile group: 'org.webjars', name: 'stomp-websocket', version: '2.3.3-1'
+    compile group: 'org.webjars', name: 'bootstrap', version: '4.5.3'
+    compile group: 'org.webjars', name: 'webjars-locator', version: '0.40'
+
+    implementation("ch.qos.logback:logback-classic")
+    implementation("com.google.code.gson:gson:${Versions.gson}")
+}

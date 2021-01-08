@@ -23,9 +23,6 @@ public class AppConfig {
 
     @Bean
     public SessionFactory getSessionFactory() {
-        // TODO: Вопрос, в каком месте должен быть расположен код, чтобы создать таблицы в базе данных до создания контекста
-        // Если убрать Flyway отсюда, то возникает ошибка
-        // org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [Addresses]
         MigrationsExecutor migrationsExecutor = new MigrationsExecutorFlyway(HIBERNATE_CFG_FILE);
         migrationsExecutor.executeMigrations();
 

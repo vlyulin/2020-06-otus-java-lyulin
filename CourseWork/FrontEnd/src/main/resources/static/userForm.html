@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Форма редактирования:</title>
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #gridContainer {padding: 20px;}
+        .row > div { border: 1px solid lightgrey; padding: 10px;
+            background-color: aliceblue; margin: 5px 0; }
+        body {
+             padding: 0 20px;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="/appForUserForm.js"></script>
+</head>
+
+<body onload="connect()">
+
+<h4 id="formTitle"></h4>
+
+<div> <!-- row -->
+    <div> <!-- class="col-md-12" -->
+        <table id="errorsTable" class="table table-striped">
+            <thead>
+            <tr>
+                <th style="color: #ff0000">Errors:</th>
+            </tr>
+            </thead>
+            <tbody id="errorLines"></tbody>
+        </table>
+    </div>
+</div>
+
+<div class="table-responsive-sm">
+    <form id="userForm" onsubmit="return false;">
+        <div>
+            <label class="control-label">Id</label>
+            <input id="userId" class="form-control" type="number" readonly style="width: 10%"/>
+        </div>
+        <div>
+            <label>Имя</label>
+            <input id="name" class="form-control" type="text" style="width: 30%"/>
+        </div>
+        <div>
+            <label>Возраст</label>
+            <input id="age" class="form-control" type="number" style="width: 30%"/>
+        </div>
+        <div>
+            <label>Логин</label>
+            <input id="login" class="form-control" type="text" style="width: 30%"/>
+        </div>
+        <div>
+            <label>Пароль</label>
+            <input id="password" class="form-control" type="text" style="width: 30%"/>
+        </div>
+        <div class="mt-sm-1">
+            <button class="btn btn-primary m-t-1" type="button" id="back" value="cancel" onclick="backToUserList()">Назад</button>
+            <button class="btn btn-primary m-t-1" type="button" id="reset"  value="reset" onclick="resetForm()">Очистить</button>
+            <button class="btn btn-primary m-t-1" type="button" id="save" value="submit">Сохранить</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

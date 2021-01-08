@@ -172,7 +172,6 @@ public class JdbcMapperImpl<T> implements JdbcMapper<T> {
                             logger.error(e.getMessage(), e);
                             throw new JdbcMapperException(e.getMessage());
                         } catch (Exception e) {
-                            // TODO: add logger
                             logger.error(e.getMessage(), e);
                             throw new JdbcMapperException(e.getMessage());
                         }

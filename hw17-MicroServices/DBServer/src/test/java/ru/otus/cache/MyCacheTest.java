@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-package ru.otus.dbserver.cache;
-=======
-package ru.otus.frontend.cache;
->>>>>>> a8016c728a7fc683aeb2939e3b461a76577bd2f4
+package ru.otus.cache;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

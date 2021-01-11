@@ -13,7 +13,5 @@ public class DbServerMain {
 
     public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
         context = SpringApplication.run(DbServerMain.class, args);
-        // Listener listener = context.getBean("DbServerListener", Listener.class);
-        // listener.start();
     }
 }

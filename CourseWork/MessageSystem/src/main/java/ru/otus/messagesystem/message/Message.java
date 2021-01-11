@@ -14,7 +14,6 @@ public class Message implements Serializable {
     private final String from;
     private final String to;
     private final MessageId sourceMessageId;
-    // private final String type; // VL fix
     private final MessageType type;
     private final byte[] payload;
     private final CallbackId callbackId;
@@ -75,7 +74,6 @@ public class Message implements Serializable {
         return to;
     }
 
-    /* String */
     public MessageType getType() {
         return type;
     }

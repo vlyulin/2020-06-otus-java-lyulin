@@ -13,8 +13,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 public class RegisterClientRequestHandler implements RequestHandler<OperationStatusMsgData> {
-    public static final String SUCCESS = "SUCCESS";
-    public static final String ERROR = "ERROR";
+
     private MessageSystem messageSystem;
     public RegisterClientRequestHandler(MessageSystem messageSystem) {
         this.messageSystem = messageSystem;
@@ -23,9 +22,9 @@ public class RegisterClientRequestHandler implements RequestHandler<OperationSta
     @Override
     public Optional<Message> handle(Message msg) {
         OperationStatusMsgData operationStatusMsgData;
-        MsClient toFrontendMsClient = new KafkaMsClientImpl(msg.getFrom(), msg.getFrom()/*DATABASE_PRODUCER*/);
+        MsClient toFrontendMsClient = new KafkaMsClientImpl(msg.getFrom(), msg.getFrom());
         messageSystem.addClient(toFrontendMsClient);
-        operationStatusMsgData = new OperationStatusMsgData(SUCCESS, new ArrayList<>());
+        operationStatusMsgData = new OperationStatusMsgData(OperationStatusMsgData.ResponseStatus.SUCCESS, new ArrayList<>());
         return Optional.of(MessageBuilder.buildReplyMessage(msg, operationStatusMsgData, MessageType.OPERATION_STATUS));
     }
 }

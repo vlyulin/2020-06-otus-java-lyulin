@@ -31,7 +31,6 @@ import java.util.function.Consumer;
 @PropertySource("classpath:/application.properties")
 public class FrontendMessageSystemConfiguration {
 
-//    public static final String FRONTEND_SERVICE_CLIENT_NAME = "frontendService";
     public static final String DATABASE_SERVICE_CLIENT_NAME = "databaseService";
     public static final String FRONTEND_PRODUCER = "FrontendProducer";
     private MessageSystem messageSystem;
@@ -84,7 +83,7 @@ public class FrontendMessageSystemConfiguration {
         return new FrontendServiceImpl(msClient, DATABASE_SERVICE_CLIENT_NAME);
     }
 
-    @Bean("DbServerListener")
+    @Bean("dbServerListener")
     Listener getListener(
             @Value("${frontend.service.client.name:FRONTEND_SERVICE_CLIENT_NAME}") String frontendServiceClientName,
             @Qualifier("frontendMessageSystem") MessageSystem messageSystem

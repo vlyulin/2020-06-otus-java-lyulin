@@ -1,5 +1,7 @@
 package ru.otus.dbserver.messagesystem;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.otus.common.core.messagetypes.DeleteUserMsgData;
 import ru.otus.common.core.messagetypes.OperationStatusMsgData;
 import ru.otus.common.core.messagetypes.SearchFormMsgData;
@@ -15,8 +17,8 @@ import java.util.Arrays;
 import java.util.Optional;
 
 public class DeleteUserRequestHandler implements RequestHandler<SearchFormMsgData> {
-    public static final String SUCCESS = "SUCCESS";
-    public static final String ERROR = "ERROR";
+
+    private static final Logger logger = LoggerFactory.getLogger(DeleteUserRequestHandler.class);
     private final UserDao userDao;
 
     public DeleteUserRequestHandler(UserDao userDao) {
@@ -34,11 +36,11 @@ public class DeleteUserRequestHandler implements RequestHandler<SearchFormMsgDat
                     userDao.deleteById(userId);
                 }
             }
-            operationStatusMsgData = new OperationStatusMsgData(SUCCESS, new ArrayList<>());
+            operationStatusMsgData = new OperationStatusMsgData(OperationStatusMsgData.ResponseStatus.SUCCESS, new ArrayList<>());
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
-            operationStatusMsgData = new OperationStatusMsgData(ERROR, Arrays.asList(e.getMessage()));
+            logger.info(e.getMessage());
+            operationStatusMsgData = new OperationStatusMsgData(OperationStatusMsgData.ResponseStatus.ERROR, Arrays.asList(e.getMessage()));
         }
         return Optional.of(MessageBuilder.buildReplyMessage(msg, operationStatusMsgData, MessageType.OPERATION_STATUS));
     }

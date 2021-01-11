@@ -27,7 +27,6 @@ import ru.otus.netsystem.Listener;
 import java.util.function.Consumer;
 
 @Configuration
-//@EnableKafka
 @ComponentScan(basePackages = {"ru.otus.dbserver", "ru.otus.netsystem"})
 @PropertySource("classpath:/application.properties")
 public class DatabaseMessageSystemConfiguration {
@@ -72,27 +71,13 @@ public class DatabaseMessageSystemConfiguration {
     public MsClient getDbMsClient(
             @Autowired @Qualifier("dbMessageSystem") MessageSystem messageSystem
     ) {
-//        MsClient toFrontendMsClient = msClientFactory.getMsClient(FRONTEND_SERVICE_CLIENT_NAME, "servicebus"/*topic*/);
         // отправка на фронт
         MsClient toFrontendMsClient = new KafkaMsClientImpl(FRONTEND_SERVICE_CLIENT_NAME, DATABASE_PRODUCER);
         messageSystem.addClient(toFrontendMsClient);
         return toFrontendMsClient;
     }
 
-//    @KafkaListener(topics="${front2db.topic}")
-//    public void listen(Message msg) throws Exception {
-//        logger.info(msg.toString());
-//        messageSystem.newMessage(msg);
-//    }
-
-//    @Bean
-//    public KafkaAdmin admin(@Value("${kafka.server}") String kafkaServer) {
-//        Map<String, Object> configs = new HashMap<>();
-//        configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG,kafkaServer);
-//        return new KafkaAdmin(configs);
-//    }
-
-    @Bean("DbServerListener")
+    @Bean("dbServerListener")
     Listener getListener(
             @Qualifier("dbMessageSystem") MessageSystem messageSystem
     ) {

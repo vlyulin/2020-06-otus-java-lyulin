@@ -3,8 +3,8 @@ plugins {
     id "org.flywaydb.flyway" version "6.4.4"
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = JavaVersion.VERSION_14
+targetCompatibility = JavaVersion.VERSION_14
 
 dependencies {
 

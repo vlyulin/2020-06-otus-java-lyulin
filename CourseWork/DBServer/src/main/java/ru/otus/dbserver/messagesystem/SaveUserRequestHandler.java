@@ -1,5 +1,7 @@
 package ru.otus.dbserver.messagesystem;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.otus.common.core.messagetypes.OperationStatusMsgData;
 import ru.otus.common.core.messagetypes.SearchFormMsgData;
 import ru.otus.common.core.messagetypes.UserMsgData;
@@ -20,8 +22,7 @@ import java.util.Set;
 
 public class SaveUserRequestHandler implements RequestHandler<SearchFormMsgData> {
 
-    public static final String SUCCESS = "SUCCESS";
-    public static final String ERROR = "ERROR";
+    private static final Logger logger = LoggerFactory.getLogger(SaveUserRequestHandler.class);
     private final UserDao userDao;
 
     public SaveUserRequestHandler(UserDao userDao) {
@@ -39,7 +40,9 @@ public class SaveUserRequestHandler implements RequestHandler<SearchFormMsgData>
                     userDao.updateUser(user);
                 }
             }
-            operationStatusMsgData = new OperationStatusMsgData(SUCCESS, new ArrayList<>());
+            operationStatusMsgData = new OperationStatusMsgData(
+                    OperationStatusMsgData.ResponseStatus.SUCCESS,
+                    new ArrayList<>());
 
         } catch( ConstraintViolationException ex) {
             Set<ConstraintViolation<?>> constraintViolationSet = ex.getConstraintViolations();
@@ -47,11 +50,11 @@ public class SaveUserRequestHandler implements RequestHandler<SearchFormMsgData>
             for (ConstraintViolation<?> constraintViolation: constraintViolationSet) {
                 errors.add(constraintViolation.getMessage());
             }
-            operationStatusMsgData = new OperationStatusMsgData(ERROR, errors);
+            operationStatusMsgData = new OperationStatusMsgData(OperationStatusMsgData.ResponseStatus.ERROR, errors);
         }
         catch (Exception e) {
-            System.out.println(e.getMessage());
-            operationStatusMsgData = new OperationStatusMsgData(ERROR, Arrays.asList(e.getMessage()));
+            logger.info(e.getMessage());
+            operationStatusMsgData = new OperationStatusMsgData(OperationStatusMsgData.ResponseStatus.ERROR, Arrays.asList(e.getMessage()));
         }
         return Optional.of(MessageBuilder.buildReplyMessage(msg, operationStatusMsgData, MessageType.OPERATION_STATUS));
     }

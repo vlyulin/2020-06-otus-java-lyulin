@@ -6,6 +6,7 @@ import ru.otus.messagesystem.client.ResultDataType;
 import java.util.UUID;
 
 public class MessageBuilder {
+
     /* "voidTechnicalMessage" */
     private static final Message VOID_MESSAGE =
             new Message(new MessageId(UUID.randomUUID().toString()), null, null,
@@ -27,11 +28,6 @@ public class MessageBuilder {
                                                                   X data, MessageType msgType) {
         return buildMessage(from, to, sourceMessageId, data, msgType, null);
     }
-
-//    public static <T extends ResultDataType> Message buildReplyMessage(Message message, T data) {
-//        return buildMessage(message.getTo(), message.getFrom(), message.getId(), data,
-//                MessageType.USER_DATA, message.getCallbackId());
-//    }
 
     public static <T extends ResultDataType> Message buildReplyMessage(Message message, T data) {
         return buildMessage(message.getTo(), message.getFrom(), message.getId(), data,

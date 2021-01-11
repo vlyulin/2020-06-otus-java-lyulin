@@ -34,10 +34,6 @@ public class CachedDBServiceUserImpl implements DBServiceUser {
             }
         }
         return optUser;
-//        return ofNullable(hwCache.get(String.valueOf(id)))
-//                .or(() ->
-//                    dbServiceUser.getUser(id).map(user -> {putUserIntoCache(user); return user;})
-//                );
     }
 
     private void putUserIntoCache(User user) {

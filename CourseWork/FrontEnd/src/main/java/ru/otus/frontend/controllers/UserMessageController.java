@@ -12,8 +12,8 @@ import ru.otus.frontend.messagesystem.FrontendService;
 
 @Controller
 public class UserMessageController {
+
     private static final Logger logger = LoggerFactory.getLogger(UserMessageController.class);
-    public static final String SUCCESS = "SUCCESS";
     private final SimpMessagingTemplate template;
     private final FrontendService frontendService;
 

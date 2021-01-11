@@ -18,7 +18,6 @@ import java.util.Optional;
 import java.util.Set;
 
 public class SaveUserRequestHandler implements RequestHandler<SearchFormMsgData> {
-    // TODO: Куда бы его засунуть, чтобы был един и для фронта, и для бэкенда
     public static final String SUCCESS = "SUCCESS";
     public static final String ERROR = "ERROR";
     private final UserDao userDao;

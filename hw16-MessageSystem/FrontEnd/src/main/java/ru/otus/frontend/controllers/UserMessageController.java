@@ -6,8 +6,8 @@ import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
-import ru.otus.frontend.core.model.SearchForm;
-import ru.otus.frontend.core.model.User;
+import ru.otus.core.model.SearchForm;
+import ru.otus.core.model.User;
 import ru.otus.messagesystem.FrontendService;
 
 @Controller

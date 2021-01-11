@@ -12,7 +12,7 @@ public class PhoneDataSet {
     @Column(name = "id")
     private long id;
 
-    @ManyToOne(fetch = FetchType.EAGER) // TODO: Delete
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", referencedColumnName="id", insertable=false, updatable=false)
     private User user;
 

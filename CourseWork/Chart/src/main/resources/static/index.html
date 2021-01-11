@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Online operations observer</title>
+	<script src="Chart.min.js"></script>
+	<script src="utils.js"></script>
+	<script src="chart.js"></script>
+	<script src="/webjars/sockjs-client/sockjs.min.js"></script>
+	<script src="/webjars/stomp-websocket/stomp.min.js"></script>
+	<style>
+	canvas {
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+	</style>
+</head>
+
+<body>
+	<div id="container" style="width: 75%;">
+		<canvas id="canvas"></canvas>
+	</div>
+	<button id="reconnect">Reconnect</button>
+	<button id="getData">Plan B</button>
+</body>
+</html>

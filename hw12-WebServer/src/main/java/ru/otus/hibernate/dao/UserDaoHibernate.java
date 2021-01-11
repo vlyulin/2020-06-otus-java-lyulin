@@ -111,7 +111,6 @@ public class UserDaoHibernate implements UserDao {
 
         Session session = currentSession.getHibernateSession();
 
-        // TODO: наверное, можно и проще обрабатывать IS NULL для числовых полей
         long longId = 0;
         if(id != null && (id.isBlank() || id.isEmpty())) { id = null; }
         if(id != null) { longId = Long.valueOf(id); }

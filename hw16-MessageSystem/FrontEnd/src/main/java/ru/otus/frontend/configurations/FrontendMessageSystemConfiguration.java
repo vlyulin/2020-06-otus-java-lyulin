@@ -9,6 +9,7 @@ import ru.otus.messagesystem.client.CallbackRegistry;
 import ru.otus.messagesystem.client.MsClient;
 import ru.otus.messagesystem.client.MsClientImpl;
 import ru.otus.messagesystem.message.MessageType;
+import ru.otus.configurations.DatabaseMessageSystemConfiguration;
 
 @Configuration
 public class FrontendMessageSystemConfiguration {
@@ -24,7 +25,7 @@ public class FrontendMessageSystemConfiguration {
         HandlersStore requestHandlerFrontendStore = new HandlersStoreImpl();
         requestHandlerFrontendStore.addHandler(MessageType.GET_FILTERED_USERS, frontEndResponseHandler);
         requestHandlerFrontendStore.addHandler(MessageType.GET_USER, frontEndResponseHandler);
-        requestHandlerFrontendStore.addHandler(MessageType.SAVE_USER, frontEndResponseHandler); // TODO: под вопросом
+        requestHandlerFrontendStore.addHandler(MessageType.SAVE_USER, frontEndResponseHandler);
         requestHandlerFrontendStore.addHandler(MessageType.OPERATION_STATUS, frontEndResponseHandler);
 
         MsClient frontendMsClient = new MsClientImpl(FRONTEND_SERVICE_CLIENT_NAME,

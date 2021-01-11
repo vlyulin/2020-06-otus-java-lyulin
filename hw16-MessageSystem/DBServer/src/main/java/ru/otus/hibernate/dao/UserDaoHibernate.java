@@ -79,7 +79,6 @@ public class UserDaoHibernate implements UserDao {
         try {
             Session hibernateSession = currentSession.getHibernateSession();
             hibernateSession.merge(user);
-            // TODO: Иначе не получал сообщения об ошибках
             hibernateSession.flush();
         } catch(ConstraintViolationException ex) {
           throw ex;

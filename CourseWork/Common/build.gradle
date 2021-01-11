@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+}
+
+group 'ru.otus'
+version 'unspecified'
+sourceCompatibility = JavaVersion.VERSION_14
+targetCompatibility = JavaVersion.VERSION_14
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':CourseWork:MessageSystem')
+
+    compile group: 'org.hibernate.validator', name: 'hibernate-validator', version: '6.1.6.Final'
+    implementation("org.hibernate:hibernate-core")
+//    implementation("com.google.code.gson:gson:${Versions.gson}")
+
+    implementation("ch.qos.logback:logback-classic")
+    implementation("com.google.code.gson:gson:${Versions.gson}")
+    implementation 'javax.json:javax.json-api'
+
+    testImplementation("org.junit.jupiter:junit-jupiter-engine")
+    testImplementation("org.junit.jupiter:junit-jupiter-params")
+    testImplementation("org.assertj:assertj-core")
+    testImplementation("org.mockito:mockito-junit-jupiter")
+
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.11.3'
+}
+
+//dependencies {
+//    testCompile group: 'junit', name: 'junit', version: '4.12'
+//}

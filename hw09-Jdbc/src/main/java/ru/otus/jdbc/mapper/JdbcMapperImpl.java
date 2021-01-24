@@ -3,9 +3,9 @@ package ru.otus.jdbc.mapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.otus.core.sessionmanager.SessionManager;
-import ru.otus.jdbc.DbExecutor;
 import ru.otus.jdbc.mapper.exceptions.JdbcMapperException;
 import ru.otus.jdbc.sessionmanager.DatabaseSessionJdbc;
+import ru.otus.jdbc.DbExecutor;
 
 import java.lang.reflect.Field;
 import java.sql.Connection;

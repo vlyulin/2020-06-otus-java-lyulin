@@ -3,7 +3,9 @@ package ru.otus;
 import ru.otus.handler.ComplexProcessor;
 import ru.otus.history.MessageHistory;
 import ru.otus.listener.ListenerForHistory;
-import ru.otus.processor.*;
+import ru.otus.processor.LoggerProcessor;
+import ru.otus.processor.ProcessorChangeFields;
+import ru.otus.processor.ProxyLoggerProcessor;
 
 import java.util.List;
 

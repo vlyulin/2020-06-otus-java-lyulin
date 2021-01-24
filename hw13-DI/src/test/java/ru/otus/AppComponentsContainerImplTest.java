@@ -8,6 +8,8 @@ import ru.otus.appcontainer.api.AppComponentsContainer;
 import ru.otus.appcontainer.exceptions.AppComponentExistsException;
 import ru.otus.config.AppConfig;
 import ru.otus.config.AppConfig2;
+import ru.otus.devidedconfig.AppDevidedConfig;
+import ru.otus.devidedconfig.AppDevidedConfig2;
 import ru.otus.services.*;
 
 import java.util.ArrayList;
@@ -28,8 +30,8 @@ class AppComponentsContainerImplTest {
         Assertions.assertThrows(AppComponentExistsException.class, () -> {
             AppComponentsContainer container =
                     new AppComponentsContainerImpl(
-                            ru.otus.config.AppConfig.class,
-                            ru.otus.config.AppConfig2.class);
+                            AppConfig.class,
+                            AppConfig2.class);
         });
     }
 
@@ -38,7 +40,7 @@ class AppComponentsContainerImplTest {
     void testContextByOneClass() {
         AppComponentsContainer container =
                 new AppComponentsContainerImpl(
-                        ru.otus.devidedconfig.AppDevidedConfig.class
+                        AppDevidedConfig.class
                 );
         List<Object> components = new ArrayList<>();
         components.add(container.getAppComponent(EquationPreparer.class));
@@ -56,8 +58,8 @@ class AppComponentsContainerImplTest {
     void testContextByClasses() {
         AppComponentsContainer container =
                 new AppComponentsContainerImpl(
-                        ru.otus.devidedconfig.AppDevidedConfig.class,
-                        ru.otus.devidedconfig.AppDevidedConfig2.class
+                        AppDevidedConfig.class,
+                        AppDevidedConfig2.class
                 );
         List<Object> components = new ArrayList<>();
         components.add(container.getAppComponent(EquationPreparer.class));

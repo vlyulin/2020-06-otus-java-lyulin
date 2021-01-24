@@ -1,0 +1,54 @@
+plugins {
+    id 'war'
+    id 'org.springframework.boot' version '2.3.1.RELEASE'
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+dependencies {
+
+    implementation project(':hw17-MicroServices:Common')
+    implementation project(':hw17-MicroServices:NetSubsystem')
+    implementation project(':hw17-MicroServices:MessageSystem')
+
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.springframework.boot:spring-boot-starter-websocket')
+    providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+
+//    compile group: 'org.webjars', name: 'webjars-locator-core', version: '0.46'
+    compile group: 'org.webjars', name: 'sockjs-client', version: '1.1.2'
+    compile group: 'org.webjars', name: 'stomp-websocket', version: '2.3.3-1'
+    compile group: 'org.webjars', name: 'bootstrap', version: '4.5.3'
+    compile group: 'org.webjars', name: 'webjars-locator', version: '0.40'
+
+    implementation("ch.qos.logback:logback-classic")
+    implementation("com.google.code.gson:gson:${Versions.gson}")
+
+    implementation('org.javassist:javassist:3.24.0-GA')
+    providedCompile("javax.servlet:javax.servlet-api")
+
+    implementation 'junit:junit:4.12'
+    testImplementation("org.junit.jupiter:junit-jupiter-engine")
+    testImplementation("org.junit.jupiter:junit-jupiter-params")
+    testImplementation("org.assertj:assertj-core")
+    testImplementation("org.mockito:mockito-junit-jupiter")
+
+    testCompile ("org.springframework:spring-test")
+    testCompile ("org.hamcrest:hamcrest-core")
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.with {
+        encoding = 'UTF-8'
+    }
+}

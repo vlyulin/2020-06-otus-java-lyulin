@@ -1,6 +1,5 @@
 package ru.otus;
 
-import com.google.gson.internal.Primitives;
 import ru.otus.examples.AnyObject;
 import com.google.gson.Gson;
 import ru.otus.mygson.MyGson;

@@ -5,14 +5,19 @@ import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
+import org.eclipse.jetty.servlet.FilterHolder;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import ru.otus.core.dao.UserDao;
 import ru.otus.helpers.FileSystemHelper;
-import ru.otus.services.TemplateProcessor;
+import ru.otus.servlet.CORSFilter;
 import ru.otus.servlet.UsersApiServlet;
 import ru.otus.servlet.UsersServlet;
 import ru.otus.servlet.processUsersServlet;
+import ru.otus.services.TemplateProcessor;
+
+import javax.servlet.DispatcherType;
+import java.util.EnumSet;
 
 public class UsersWebServerSimple implements UsersWebServer {
     private static final String START_PAGE_NAME = "index.html";
@@ -60,6 +65,10 @@ public class UsersWebServerSimple implements UsersWebServer {
         HandlerList handlers = new HandlerList();
         handlers.addHandler(resourceHandler);
         handlers.addHandler(applySecurity(servletContextHandler, "/users", "/api/user/*", "/process_user/*"));
+
+        // Anti CORS
+        FilterHolder holder = new FilterHolder(new CORSFilter());
+        servletContextHandler.addFilter(holder, "/*", EnumSet.of(DispatcherType.REQUEST));
 
         server.setHandler(handlers);
         return server;

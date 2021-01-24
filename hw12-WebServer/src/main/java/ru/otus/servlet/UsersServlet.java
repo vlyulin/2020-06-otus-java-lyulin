@@ -28,15 +28,14 @@ public class UsersServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse response) throws IOException {
-        Map<String, Object> paramsMap = new HashMap<>();
         String id = req.getParameter("id");
         String name = req.getParameter("name");
         String login = req.getParameter("login");
-//        userDao.findRandomUser().ifPresent(randomUser -> paramsMap.put(TEMPLATE_ATTR_RANDOM_USER, randomUser));
-        List<User> users = userDao.findByMask(name, login);
+        List<User> users = userDao.findByMask(id, name, login);
+
+        Map<String, Object> paramsMap = new HashMap<>();
         paramsMap.put(TEMPLATE_ATTR_USERS, users);
         response.setContentType("text/html");
         response.getWriter().println(templateProcessor.getPage(USERS_PAGE_TEMPLATE, paramsMap));
     }
-
 }

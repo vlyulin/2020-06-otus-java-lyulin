@@ -8,6 +8,7 @@
 * [Модуль hw01-gradle](#Модуль-hw01-gradle)
 * [Модуль hw02-DIY-ArrayList](#Модуль_hw02-DIY-ArrayList)
 * [Модуль hw03-Reflection](#Модуль_hw023-Reflection)
+<<<<<<< HEAD
 * [Модуль hw04-GCComparisons](#Модуль_hw04-GCComparisons)
 * [Модуль hw05-AOP](#Модуль_hw05-AOP)
 * [Модуль hw06-ATM](#Модуль_hw06-ATM)
@@ -22,6 +23,8 @@
 * [Модуль hw15-Executors](#Модуль_hw15-Executors)
 * [Модуль hw16-MessageSystem](#Модуль_hw16-MessageSystem)
 * [Модуль hw17-MicroServices](#Модуль_hw17-MicroServices)
+=======
+>>>>>>> hw03-Reflection
 
 # Студент
 ФИО слушателя: Люлин Вадим Евгеньевич
@@ -65,7 +68,11 @@ Collections.addAll(Collection<? super T> c, T... elements)
 Collections.static <T> void copy(List<? super T> dest, List<? extends T> src)
 Collections.static <T> void sort(List<T> list, Comparator<? super T> c)
 
+<<<<<<< HEAD
 ## Модуль hw03-Reflection<a name="Модуль_hw023-Reflection"></a>
+=======
+## Модуль hw03-Reflection<a name="Модуль_hw023-Reflection">
+>>>>>>> hw03-Reflection
 Домашнее задание
 Свой тестовый фреймворк
 Цель: научиться работать с reflection и аннотациями, понять принцип работы фреймворка junit.
@@ -87,6 +94,7 @@ Collections.static <T> void sort(List<T> list, Comparator<? super T> c)
 5) Исключение в одном тесте не должно прерывать весь процесс тестирования.
 6) На основании возникших во время тестирования исключений вывести статистику выполнения тестов (сколько прошло успешно, сколько упало, сколько было всего) 
 
+<<<<<<< HEAD
 ## Модуль hw04-GCComparisons<a name="Модуль_hw04-GCComparisons"></a>
 Сравнение разных сборщиков мусора
 Цель: на примере простого приложения понять какое влияние оказывают сборщики мусора
@@ -366,6 +374,8 @@ Cервер из предыдущего ДЗ про MessageSystem раздели
 Изучение JMH
 >>>>>>> hw02-DIY-ArrayList
 
+=======
+>>>>>>> hw03-Reflection
 ### Преподаватели
 Сергей Петрелевич<br>
 Стрекалов Павел<br>

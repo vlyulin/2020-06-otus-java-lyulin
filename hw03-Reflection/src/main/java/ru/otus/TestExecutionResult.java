@@ -1,5 +1,7 @@
 package ru.otus;
 
+import ru.otus.exceptions.MyJUnitAssertException;
+
 public class TestExecutionResult {
     private String testName;
     private boolean result;

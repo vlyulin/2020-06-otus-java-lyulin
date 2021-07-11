@@ -25,6 +25,3 @@ include 'hw17-MicroServices:FrontEnd'
 include 'hw17-MicroServices:Server'
 include 'hw17-MicroServices:NetSubsystem'
 include 'hw17-MicroServices:Common'
-
-
-

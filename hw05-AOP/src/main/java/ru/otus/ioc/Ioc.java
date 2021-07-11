@@ -39,6 +39,7 @@ public class Ioc {
 
         private static List<Method> getMethodsAnnotatedWith(final Class<?> clazz, final Class<? extends Annotation> annotation) {
             final List<Method> methods = new ArrayList<Method>();
+            // final List<Method> methods = new ArrayList<>();
             for (final Method method : clazz.getDeclaredMethods()) {
                 if (method.isAnnotationPresent(annotation)) {
                     methods.add(method);

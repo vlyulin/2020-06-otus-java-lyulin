@@ -12,6 +12,7 @@ import ru.otus.core.model.User;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.concurrent.ThreadLocalRandom;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
@@ -46,7 +47,7 @@ class MyCacheTest {
         assertThat(value).isNull();
     }
 
-    private class HwListenerClass<K, V> implements HwListener {
+    private class HwListenerClass<K, V> implements ru.otus.cache.HwListener {
 
         @Override
         public void notify(Object key, Object value, String action) {

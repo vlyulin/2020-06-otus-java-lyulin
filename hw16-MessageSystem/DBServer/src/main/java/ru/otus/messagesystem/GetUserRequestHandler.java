@@ -5,8 +5,8 @@ import ru.otus.core.model.User;
 import ru.otus.messagesystem.message.Message;
 import ru.otus.messagesystem.message.MessageBuilder;
 import ru.otus.messagesystem.message.MessageHelper;
-import ru.otus.messagesystem.messagetypes.UserMsgData;
 import ru.otus.messagesystem.messagetypes.SearchFormMsgData;
+import ru.otus.messagesystem.messagetypes.UserMsgData;
 
 import java.util.Optional;
 

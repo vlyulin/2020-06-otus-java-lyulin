@@ -4,9 +4,9 @@ import ru.otus.core.dao.UserDao;
 import ru.otus.messagesystem.message.Message;
 import ru.otus.messagesystem.message.MessageBuilder;
 import ru.otus.messagesystem.message.MessageHelper;
+import ru.otus.messagesystem.message.MessageType;
 import ru.otus.messagesystem.messagetypes.DeleteUserMsgData;
 import ru.otus.messagesystem.messagetypes.OperationStatusMsgData;
-import ru.otus.messagesystem.message.MessageType;
 import ru.otus.messagesystem.messagetypes.SearchFormMsgData;
 
 import java.util.ArrayList;

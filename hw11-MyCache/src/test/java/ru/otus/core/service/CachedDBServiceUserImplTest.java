@@ -27,7 +27,11 @@ class CachedDBServiceUserImplTest {
     @DisplayName("Проверка получения закэшированного User")
     void getCachedUser() {
 
+<<<<<<< HEAD
         HwCache<String, User> hwCache = new MyCache<>();
+=======
+        HwCache<String,User> hwCache = new MyCache<>();
+>>>>>>> hw11-MyCache
         HwCache<String,User> spyHwCache = spy(hwCache);
         User user = getDummyUser(USER_ID, "Дурилов Картон Испытанович", 54);
         spyHwCache.put(String.valueOf(user.getId()),user);

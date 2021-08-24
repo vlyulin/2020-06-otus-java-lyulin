@@ -1,6 +1,14 @@
 package ru.otus.core.model;
 
+<<<<<<< HEAD
 import javax.persistence.*;
+=======
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
+import javax.persistence.*;
+import java.util.List;
+>>>>>>> hw11-MyCache
 import java.util.Objects;
 import java.util.Set;
 

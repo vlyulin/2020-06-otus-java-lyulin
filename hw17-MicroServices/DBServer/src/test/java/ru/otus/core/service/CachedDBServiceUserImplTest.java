@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 package ru.otus.dbserver.core.service;
-=======
-package ru.otus.frontend.core.service;
->>>>>>> a8016c728a7fc683aeb2939e3b461a76577bd2f4
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

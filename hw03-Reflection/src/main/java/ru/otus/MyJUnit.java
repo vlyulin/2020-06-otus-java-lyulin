@@ -4,7 +4,6 @@ import ru.otus.annotations.DisplayName;
 import ru.otus.annotations.Test;
 import ru.otus.annotations.After;
 import ru.otus.annotations.Before;
-import ru.otus.exceptions.MyJUnitAssertException;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;

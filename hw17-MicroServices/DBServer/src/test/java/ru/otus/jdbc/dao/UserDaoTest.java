@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 package ru.otus.dbserver.jdbc.dao;
-=======
-package ru.otus.frontend.jdbc.dao;
->>>>>>> a8016c728a7fc683aeb2939e3b461a76577bd2f4
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -19,11 +15,7 @@ import ru.otus.dbserver.hibernate.HibernateUtils;
 import ru.otus.dbserver.hibernate.dao.UserDaoHibernate;
 import ru.otus.dbserver.hibernate.sessionmanager.DatabaseSessionHibernate;
 import ru.otus.dbserver.hibernate.sessionmanager.SessionManagerHibernate;
-<<<<<<< HEAD
 import ru.otus.dbserver.jdbc.helpers.UserUtils;
-=======
-import ru.otus.frontend.jdbc.helpers.UserUtils;
->>>>>>> a8016c728a7fc683aeb2939e3b461a76577bd2f4
 
 import java.util.Arrays;
 import java.util.HashSet;

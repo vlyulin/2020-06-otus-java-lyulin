@@ -10,13 +10,11 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import ru.otus.core.dao.UserDao;
 import ru.otus.helpers.FileSystemHelper;
-import ru.otus.services.TemplateProcessor;
 import ru.otus.servlet.CORSFilter;
 import ru.otus.servlet.UsersApiServlet;
 import ru.otus.servlet.UsersServlet;
 import ru.otus.servlet.processUsersServlet;
 import ru.otus.services.TemplateProcessor;
-
 import javax.servlet.DispatcherType;
 import java.util.EnumSet;
 

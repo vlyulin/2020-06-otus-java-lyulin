@@ -47,11 +47,8 @@ class MyCacheTest {
         assertThat(value).isNull();
     }
 
-<<<<<<< HEAD
     private class HwListenerClass<K, V> implements HwListener {
-=======
-    private class HwListenerClass<K, V> implements ru.otus.cache.HwListener {
->>>>>>> hw11-MyCache
+    // private class HwListenerClass<K, V> implements ru.otus.cache.HwListener {
 
         @Override
         public void notify(Object key, Object value, String action) {

@@ -13,7 +13,6 @@ public class EntityClassMetaDataImpl<T> implements EntityClassMetaData<T> {
 
     private Class<T> genericTypeClass;
     private List<Constructor<?>> constructors;
-    private List<Constructor<?>> constructors; // TODO: почему именно <?>
     private List<Field> idFields = new ArrayList<>();
     private List<Field> fields = new ArrayList<>();
 

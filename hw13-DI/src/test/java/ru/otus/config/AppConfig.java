@@ -3,10 +3,6 @@ package ru.otus.config;
 import ru.otus.appcontainer.api.AppComponent;
 import ru.otus.appcontainer.api.AppComponentsContainerConfig;
 import ru.otus.services.*;
-<<<<<<< HEAD
-//import ru.otus.services.*;
-=======
->>>>>>> hw13-DI
 
 @AppComponentsContainerConfig(order = 1)
 public class AppConfig {

@@ -4,11 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.otus.core.dao.UserDao;
 import ru.otus.core.model.User;
-<<<<<<< HEAD
-=======
 import ru.otus.core.sessionmanager.DatabaseSession;
 import ru.otus.hibernate.sessionmanager.SessionManagerHibernate;
->>>>>>> hw11-MyCache
 
 import java.util.Optional;
 

@@ -25,11 +25,8 @@ public class ServerMessageSystemConfiguration {
 
     @Bean("serverMessageSystem")
     public MessageSystem getMessageSystem() {
-<<<<<<< HEAD
         return new MessageSystemImpl();
-=======
-        return new MessageSystemImpl("serverMessageSystem");
->>>>>>> a8016c728a7fc683aeb2939e3b461a76577bd2f4
+        // return new MessageSystemImpl("serverMessageSystem");
     }
 
     @Bean("serverCallbackRegistry")

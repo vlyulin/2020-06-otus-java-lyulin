@@ -1,7 +1,7 @@
 package ru.otus.messagesystem;
 
-import ru.otus.core.model.SearchForm;
-import ru.otus.core.model.User;
+import ru.otus.frontend.core.model.SearchForm;
+import ru.otus.frontend.core.model.User;
 import ru.otus.messagesystem.client.MessageCallback;
 import ru.otus.messagesystem.messagetypes.OperationStatusMsgData;
 import ru.otus.messagesystem.messagetypes.UserListMsgData;

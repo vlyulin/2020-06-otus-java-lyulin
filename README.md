@@ -1,123 +1,126 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4" />
 
-# Курс "Разработчик Java" в OTUS
+# Course "Java Developer", OTUS
 
-# Содержание:
-* [Студент](#Студент)
-* [Модуль hw01-gradle](#Модуль-hw01-gradle)
-* [Модуль hw02-DIY-ArrayList](#Модуль_hw02-DIY-ArrayList)
-* [Модуль hw03-Reflection](#Модуль_hw023-Reflection)
-* [Модуль hw04-GCComparisons](#Модуль_hw04-GCComparisons)
-* [Модуль hw05-AOP](#Модуль_hw05-AOP)
-* [Модуль hw06-ATM](#Модуль_hw06-ATM)
-* [Модуль hw07-MessageHandler](#Модуль_hw07-MessageHandler)
-* [Модуль hw08-JsonObjectWriter](#Модуль_hw08-JsonObjectWriter)
-* [Модуль hw09-Jdbc](#Модуль_hw09-Jdbc)
-* [Модуль hw09-Hibernate](#Модуль_hw10-Hibernate)
-* [Модуль hw11-MyCache](#Модуль_hw11-MyCache)
+# Content:
+* [Student](#Student)
+* [Module hw01-gradle](#Module-hw01-gradle)
+* [Module hw02-DIY-ArrayList](#Module_hw02-DIY-ArrayList)
+* [Module hw03-Reflection](#Module_hw03-Reflection)
+* [Module hw04-GCComparisons](#Module_hw04-GCComparisons)
+* [Module hw05-AOP](#Module_hw05-AOP)
+* [Module hw06-ATM](#Module_hw06-ATM)
+* [Module hw07-MessageHandler](#Module_hw07-MessageHandler)
+* [Module hw08-JsonObjectWriter](#Module_hw08-JsonObjectWriter)
+* [Module hw09-Jdbc](#Module_hw09-Jdbc)
+* [Module hw09-Hibernate](#Module_hw10-Hibernate)
+* [Module hw11-MyCache](#Module_hw11-MyCache)
+* [Module hw12-WebServer](#Module_hw12-WebServer)
+* [Module hw13-DI](#Module_hw13-DI)
+* [Module hw14-SpringMVC](#Module_hw14-SpringMVC)
+* [Module hw15-Executors](#Module_hw15-Executors)
+* [Module hw16-MessageSystem](#Module_hw16-MessageSystem)
+* [Module hw17-MicroServices](#Module_hw17-MicroServices)
 
-# Студент
-ФИО слушателя: Люлин Вадим Евгеньевич
-Название курса: Разработчик Java
-Группа: 2020-06
+# Student
+Student: Vadim Lyulin
+Course: Java Developer
+Group: 2020-06
 
-## Модуль hw01-gradle<a name="Модуль-hw01-gradle"></a>
-Проект gradle с модульной структурой
+## Module hw01-gradle<a name="Module-hw01-gradle"></a>
+Homework: Gradle project with modular structure
 
-Домашнее задание
-Проект gradle с модульной структурой
-Цель: нучиться создавать проект Gradle (Maven), подготовиться к выполнению домашних заданий.
-1) Создайте аккаунт на github.com (если еще нет)
-2) Создайте репозиторий для домашних работ
-3) Сделайте checkout репозитория на свой компьютер
-4) Создайте локальный бранч hw01-gradle
-5) Создать проект gradle
-6) В проект добавьте последнюю версию зависимости
-<groupId>com.google.guava</groupId>
-<artifactId>guava</artifactId>
-7) Создайте модуль hw01-gradle
-8) В модуле сделайте класс HelloOtus
-9) В этом классе сделайте вызов какого-нибудь метода из guava
-10) Создайте "толстый-jar"
-11) Убедитесь, что "толстый-jar" запускается.
-12) Сделайте pull-request в gitHub
-13) Ссылку на PR отправьте на проверку (личный кабинет, чат с преподавателем).
+Objective: to learn how to create a Gradle project (Maven), prepare for homework.
+1) Create an account at github.com (if not already)
+2) Create a homework repository
+3) Checkout the repository on your computer
+4) Create a local branch hw01-gradle
+5) Create gradle project
+6) Add the latest version of the dependency to the project
+<groupId> com.google.guava </groupId>
+<artifactId> guava </artifactId>
+7) Create Module hw01-gradle
+8) In the module, make the HelloOtus class
+9) In this class, make a call to some method from guava
+10) Create "fat-jar"
+11) Make sure the fat-jar starts.
+12) Make a pull-request to gitHub
+13) Send the link to PR for verification (personal account, chat with a teacher).
 
-При желании, можно сделать maven-проект и далее на курсе работать с maven-ом.
-Для Maven инструкция аналогичная (просто в тексте замените Gradle на Maven). 
+If you wish, you can create a maven project and then work with maven on the course.
+For Maven, the instructions are similar (just replace Gradle with Maven in the text).
 
-## Модуль hw02-DIY-ArrayList<a name="Модуль_hw02-DIY-ArrayList"></a>
-Домашнее задание DIY ArrayList
+## Module hw02-DIY-ArrayList<a name="Module_hw02-DIY-ArrayList"></a>
+Homework: DIY ArrayList
 
-Цель: изучить как устроена стандартная коллекция ArrayList. Попрактиковаться в создании своей коллекции.
-Написать свою реализацию ArrayList на основе массива.
+Objective: to study how the standard collection ArrayList works. Practice building your collection.
+Write your own implementation of ArrayList based on the array.
 class DIYarrayList<T> implements List<T>{...}
 
-Проверить, что на ней работают методы из java.util.Collections:
+Check that methods from java.util.Collections work on it:
 Collections.addAll(Collection<? super T> c, T... elements)
 Collections.static <T> void copy(List<? super T> dest, List<? extends T> src)
 Collections.static <T> void sort(List<T> list, Comparator<? super T> c)
 
-## Модуль hw03-Reflection<a name="Модуль_hw023-Reflection"></a>
-Домашнее задание
-Свой тестовый фреймворк
-Цель: научиться работать с reflection и аннотациями, понять принцип работы фреймворка junit.
-Написать свой тестовый фреймворк.
+## Module hw03-Reflection<a name="Module_hw03-Reflection"></a>
+Homework: Your own test framework
+Objective: to learn how to work with reflection and annotations, to understand how the junit framework works.
+Write your own test framework.
 
-Поддержать свои аннотации @Test, @Before, @After.
+Maintain your annotations @Test, @Before, @After.
 
-Запускать вызовом статического метода с именем класса с тестами.
+Run by calling a static method with the name of the class with tests.
 
-Т.е. надо сделать:
-1) создать три аннотации - @Test, @Before, @After.
-2) Создать класс-тест, в котором будут методы, отмеченные аннотациями.
-3) Создать "запускалку теста". На вход она должна получать имя класса с тестами, в котором следует найти и запустить методы отмеченные аннотациями и пункта 1.
-4) Алгоритм запуска должен быть следующий::
-метод(ы) Before
-текущий метод Test
-метод(ы) After
-для каждой такой "тройки" надо создать СВОЙ объект класса-теста.
-5) Исключение в одном тесте не должно прерывать весь процесс тестирования.
-6) На основании возникших во время тестирования исключений вывести статистику выполнения тестов (сколько прошло успешно, сколько упало, сколько было всего) 
+What you need to do:
+1) create three annotations - @Test, @Before, @After.
+2) Create a test class containing annotated methods.
+3) Create a "test launcher". At the entrance, it should receive the name of the class with the tests, in which the methods marked with annotations and paragraph 1 should be found and run.
+4) The startup algorithm should be as follows:
+Before method (s)
+the current Test method
+After method (s)
+for each such "triplet" it is necessary to create OWN object of the test class.
+5) An exception in one test should not interrupt the entire testing process.
+6) Based on the exceptions that occurred during testing, display the statistics of test execution (how many were successful, how many fell, how many were in total).
 
-## Модуль hw04-GCComparisons<a name="Модуль_hw04-GCComparisons"></a>
-Сравнение разных сборщиков мусора
-Цель: на примере простого приложения понять какое влияние оказывают сборщики мусора
-Написать приложение, которое следит за сборками мусора и пишет в лог количество сборок каждого типа
-(young, old) и время которое ушло на сборки в минуту.
+## Module hw04-GCComparisons<a name="Module_hw04-GCComparisons"></a>
+Homework: Comparison of different garbage collectors
+Objective: to understand the impact of garbage collectors using a simple application as an example.
+Write an application that monitors garbage collections and logs the number of assemblies of each type
+(young, old) and the time spent on assemblies per minute.
 
-Добиться OutOfMemory в этом приложении через медленное подтекание по памяти
-(например добавлять элементы в List и удалять только половину).
+Achieve OutOfMemory in this app through slow memory drip
+(for example add items to List and only remove half).
 
 
-Настроить приложение (можно добавлять Thread.sleep(...)) так чтобы оно падало
-с OOM примерно через 5 минут после начала работы.
+Configure the application (you can add Thread.sleep (...)) so that it crashes
+with OOM about 5 minutes after starting work.
 
-Собрать статистику (количество сборок, время на сборки) по разным GC.
+Collect statistics (number of builds, build time) for different GCs.
 
-!!! Сделать выводы !!!
-ЭТО САМАЯ ВАЖНАЯ ЧАСТЬ РАБОТЫ:
-Какой gc лучше и почему?
+!!! Draw conclusions !!!
+THIS IS THE MOST IMPORTANT PART OF THE WORK:
+Which gc is better and why?
 
-Выводы оформить в файле Сonclusions.md в корне папки проекта.
-Результаты измерений сведите в таблицу.
+Conclusions should be formatted in the file Сonclusions.md in the root of the project folder.
+Summarize the measurement results in the table.
 
-Попробуйте провести этот эксперимент на небольшом хипе порядка 256Мб, и на максимально возможном, который у вас может быть. 
+Try this experiment on a small heap of about 256MB, and on the maximum possible that you can have.
 
-## Модуль hw05-AOP<a name="Модуль_hw05-AOP"></a>
-Автоматическое логирование.
-Цель: Понять как реализуется AOP, какие для этого есть технические средства.
-Разработайте такой функционал:
-метод класса можно пометить самодельной аннотацией @Log, например, так:
+## Module hw05-AOP<a name="Module_hw05-AOP"></a>
+Automatic logging.
+Objective: To understand how AOP is implemented, what technical means are for this.
+Develop this functionality:
+a class method can be marked with a homemade @Log annotation, for example, like this:
 
 class TestLogging {
 @Log
 public void calculation(int param) {};
 }
 
-При вызове этого метода "автомагически" в консоль должны логироваться значения параметров.
-Например так.
+When this method is called "automatically", the parameter values must be logged to the console.
+For example like this:
 
 class Demo {
 public void action() {
@@ -125,187 +128,241 @@ new TestLogging().calculation(6);
 }
 }
 
-В консоле дожно быть:
+The console should contain:
 executed method: calculation, param: 6
 
-Обратите внимание: явного вызова логирования быть не должно.
+Please note: there should not be an explicit call to logging.
 
-Учтите, что аннотацию можно поставить, например, на такие методы:
+Please note that the annotation can be placed, for example, on the following methods:
 public void calculation(int param1)
 public void calculation(int param1, int param2)
 public void calculation(int param1, int param2, String param3)
 
 P.S.
-Выбирайте реализацию с ASM, если действительно этого хотите и уверены в своих силах.
-Критерии оценки: Система оценки максимально соответсвует привычной школьной:
-3 и больше - задание принято (удовлетворительно).
-ниже - задание возвращается на доработку.
+Choose an implementation with ASM if you really want it and are confident in your abilities.
+Assessment criteria: The assessment system is as close as possible to the usual school:
+3 or more - the task is accepted (satisfactory).
+below - the task is returned for revision.
 
-## Модуль hw06-ATM<a name="Модуль_hw06-ATM"></a>
-Эмулятор банкомата
-Цель: Применить на практике принципы SOLID.
-Написать эмулятор АТМ (банкомата).
+## Module hw06-ATM<a name="Module_hw06-ATM"></a>
+ATM emulator
+Objective: To put into practice the principles of SOLID.
+Write an ATM (ATM) emulator.
 
-Объект класса АТМ должен уметь:
-- принимать банкноты разных номиналов (на каждый номинал должна быть своя ячейка)
-- выдавать запрошенную сумму минимальным количеством банкнот или ошибку если сумму нельзя выдать
-Это задание не на алгоритмы, а на проектирование.
-Поэтому оптимизировать выдачу не надо.
-- выдавать сумму остатка денежных средств
+An ATM class object must be able to:
+- accept banknotes of different denominations (each denomination must have its own cell)
+- issue the requested amount with the minimum number of banknotes or an error if the amount cannot be dispensed
+This task is not for algorithms, but for design.
+Therefore, there is no need to optimize the issue.
+- issue the amount of the balance of funds
 
-В этом задании больше думайте об архитектуре приложения.
-Не отвлекайтесь на создание таких объектов как: пользователь, авторизация, клавиатура, дисплей, UI (консольный, Web, Swing), валюта, счет, карта, т.д.
-Все это не только не нужно, но и вредно!
-Критерии оценки: Система оценки максимально соответсвует привычной школьной:
-3 и больше - задание принято (удовлетворительно).
-ниже - задание возвращается на доработку.
+In this assignment, think more about the architecture of your application.
+Do not be distracted by creating such objects as: user, authorization, keyboard, display, UI (console, Web, Swing), currency, account, card, etc.
+All this is not only unnecessary, but also harmful!
+Assessment criteria: The assessment system is as close as possible to the usual school:
+3 or more - the task is accepted (satisfactory).
+below - the task is returned for revision.
 
-## Модуль hw07-MessageHandler<a name="Модуль_hw07-MessageHandler"></a>
-Домашнее задание
-Обработчик сообщений
-Цель: Применить на практике шаблоны проектирования.
-Реализовать todo из модуля homework.
+## Module hw07-MessageHandler<a name="Module_hw07-MessageHandler"></a>
+Homework
+Message handler
+Objective: To apply design patterns in practice.
+Implement todo from homework module.
 
-## Модуль hw08-JsonObjectWriter<a name="Модуль_hw08-JsonObjectWriter"></a>
-Cвой json object writer
-Цель: Научиться сериализовывать объект в json, попрактиковаться в разборе структуры объекта.
-Напишите свой json object writer (object to JSON string) аналогичный gson на основе javax.json.
+## Module hw08-JsonObjectWriter<a name="Module_hw08-JsonObjectWriter"></a>
+Your json object writer
+Objective: To learn how to serialize an object in json, to practice parsing the structure of an object.
+Write your json object writer (object to JSON string) similar to gson based on javax.json.
 
-Gson это делает так:
+Gson does it like this:
 Gson gson = new Gson();
 AnyObject obj = new AnyObject(22, "test", 10);
 String json = gson.toJson(obj);
 
-Сделайте так:
+Do this:
 MyGson myGson = new MyGson();
 AnyObject obj = new AnyObject(22, "test", 10);
 String myJson = myGson.toJson(obj);
 
-Должно получиться:
+You should get:
 AnyObject obj2 = gson.fromJson(myJson, AnyObject.class);
 System.out.println(obj.equals(obj2));
 
-Поддержите:
-- примитивные типы
-- массивы примитивных типов
-- коллекции (interface Collection)
-не забываться, что obj может быть null
+Support:
+- primitive types
+- arrays of primitive types
+- collections (interface Collection)
+don't forget that obj can be null
 
-## Модуль hw09-Jdbc<a name="Модуль_hw09-Jdbc"></a>
+## Module hw09-Jdbc<a name="Module_hw09-Jdbc"></a>
 
-Самодельный ORM
-Цель: Научиться работать с jdbc. На практике освоить многоуровневую архитектуру приложения.
-Работа должна использовать базу данных H2.
+Homemade ORM
+Objective: Learn to work with jdbc. In practice, master the layered architecture of the application.
+The job is to use the H2 database.
 
-Создайте в базе таблицу User с полями:
+Create a User table in the database with the following fields:
 
 • id bigint(20) NOT NULL auto_increment
 • name varchar(255)
 • age int(3)
 
-Создайте свою аннотацию @Id
+Create your @Id annotation
 
-Создайте класс User (с полями, которые соответствуют таблице, поле id отметьте аннотацией).
+Create a User class (with fields that correspond to the table, annotate the id field).
 
-Реализуйте интерфейс JdbcMapper<T>, который умеет работать с классами, в которых есть поле с аннотацией @Id.
-JdbcMapper<T> должен сохранять объект в базу и читать объект из базы.
-Для этого надо реализовать оставшиеся интерфейсы из пакета mapper.
-Таким обзазом, получится надстройка над DbExecutor<T>, которая по заданному классу умеет генерировать sql-запросы.
-А DbExecutor<T> должен выполнять сгенерированные запросы.
+Implement the JdbcMapper <T> interface that can work with classes that have a @Id annotated field.
+JdbcMapper <T> must save the object to the base and read the object from the base.
+To do this, you need to implement the remaining interfaces from the mapper package.
+With such an overview, you get an add-on over DbExecutor <T>, which, according to a given class, is able to generate sql-queries.
+And DbExecutor <T> should execute the generated queries.
 
-Имя таблицы должно соответствовать имени класса, а поля класса - это колонки в таблице.
+The table name must match the class name, and the class fields are columns in the table.
 
-Проверьте его работу на классе User.
+Check it out on the User class.
 
-За основу возьмите класс HomeWork.
+Take the HomeWork class as a basis.
 
-Создайте еще одну таблицу Account:
+Create another Account table:
 • no bigint(20) NOT NULL auto_increment
 • type varchar(255)
 • rest number
 
-Создайте для этой таблицы класс Account и проверьте работу JdbcMapper на этом классе. 
+Create an Account class for this table and test the JdbcMapper on this class.
 
-## Модуль hw10-Hibernate<a name="Модуль_hw10-Hibernate"></a>
+## Module hw10-Hibernate<a name="Module_hw10-Hibernate"></a>
 
-Использование Hibernate
-Цель: На практике освоить основы Hibernate.
-Понять как аннотации-hibernate влияют на формирование sql-запросов.
-Работа должна использовать базу данных H2.
+Using Hibernate
+Objective: To practice the basics of Hibernate.
+Understand how annotations-hibernate affect the shaping of sql queries.
+The job is to use the H2 database.
 
-Возьмите за основу предыдущее ДЗ (Самодельный ORM),
-используйте предложенный на вебинаре api (пакет api)
-и реализуйте функционал сохранения и чтения объекта User через Hibernate.
-(Рефлексия больше не нужна)
-Конфигурация Hibernate должна быть вынесена в файл.
+Take as a basis the previous DZ (Homemade ORM),
+use the api suggested in the webinar (api package)
+and implement the functionality of saving and reading the User object through Hibernate.
+(Reflection is no longer needed)
+The Hibernate configuration should be moved to a file.
 
-Добавьте в User поля:
-адрес (OneToOne)
+Add fields to User:
+address (OneToOne)
 class AddressDataSet {
 private String street;
 }
-и телефон (OneToMany)
+and phone (OneToMany)
 class PhoneDataSet {
 private String number;
 }
 
-Разметьте классы таким образом, чтобы при сохранении/чтении объека User каскадно сохранялись/читались вложенные объекты.
+Mark up the classes so that when you save / read the User object, nested objects are cascaded / read.
 
-ВАЖНО.
-1) Hibernate должен создать только три таблицы: для телефонов, адресов и пользователей.
-2) При сохранении нового объекта не должно быть update-ов.
-Посмотрите в логи и проверьте, что эти два требования выполняются.
-Критерии оценки: Система оценки максимально соответсвует привычной школьной:
-3 и больше - задание принято (удовлетворительно).
-ниже - задание возвращается на доработку.
+IMPORTANT.
+1) Hibernate only needs to create three tables: for phones, addresses and users.
+2) When saving a new object, there should be no updates.
+Look in the logs and check that these two requirements are met.
+Assessment criteria: The assessment system is as close as possible to the usual school:
+3 or more - the task is accepted (satisfactory).
+below - the task is returned for revision.
 
-## Модуль hw11-MyCache<a name="hw11-MyCache"></a>
-Свой cache engine
-Цель: Научится применять WeakHashMap,
-понять базовый принцип организации кеширования.
-Закончите реализацию MyCache из вебинара.
-Используйте WeakHashMap для хранения значений.
+## Module hw11-MyCache<a name="hw11-MyCache"></a>
+Custom cache engine
+Objective: Learn to use WeakHashMap,
+understand the basic principle of organizing caching.
+Finish the MyCache implementation from the webinar.
+Use WeakHashMap to store values.
 
-Добавьте кэширование в DBService из задания про Hibernate ORM или "Самодельный ORM".
-Для простоты скопируйте нужные классы в это ДЗ.
+Add caching to the DBService from the Hibernate ORM or DIY ORM job.
+For the sake of simplicity, copy the required classes into this DZ.
 
-Убедитесь, что ваш кэш действительно работает быстрее СУБД и сбрасывается при недостатке памяти. 
+Make sure that your cache is actually faster than the DBMS and flushes when it runs out of memory.
 
-<<<<<<< HEAD
-=======
-## Модуль hw12-WebServer<a name="hw12-WebServer"></a>
-Веб сервер
-Цель: Научиться создавать серверный и пользовательский http-интерфейсы.
-Научиться встраивать web-сервер в уже готовое приложение.
-Встроить веб-сервер в приложение из ДЗ про Hibernate ORM (или в пример из вебинара встроить ДЗ про Hibernate :)).
-Сделать стартовую страницу, на которой админ должен аутентифицироваться.
-Сделать админскую страницу для работы с пользователями.
-На этой странице должны быть доступны следующие функции:
-- создать пользователя
-- получить список пользователей
+## Module hw12-WebServer<a name="hw12-WebServer"></a>
+Web server
+Objective: To learn how to create server and user http interfaces.
+Learn to embed a web server into a ready-made application.
+Embed a web server into the application from the Hibernate ORM remote control (or embed the Hibernate remote control into the example from the webinar :)).
+Make a start page where the admin must authenticate.
+Create an admin page for working with users.
+The following functions should be available on this page:
+- create user
+- get a list of users
 
-## Модуль hw13-DI<a name="hw13-DI"></a>
+## Module hw13-DI<a name="hw13-DI"></a>
 
-Домашнее задание (Собственный IoC контейнер)
-Цель: В процессе создания своего контекста понять как работает основная часть Spring framework.
-Обязательная часть:
+Homework (Own IoC container)
+Objective: In the process of creating your context, understand how the main part of the Spring framework works.
+Mandatory part:
 
-- Скачать заготовку приложения тренажера таблицы умножения из репозитория с примерами
-- В классе AppComponentsContainerImpl реализовать обработку, полученной в конструкторе конфигурации, основываясь на разметке аннотациями из пакета appcontainer.
-Так же необходимо реализовать методы getAppComponent
-- В итоге должно получиться работающее приложение. Менять можно только
-класс AppComponentsContainerImpl
+- Download a blank multiplication table simulator application from the repository with examples
+- In the AppComponentsContainerImpl class, implement the processing received in the configuration constructor, based on the annotation markup from the appcontainer package.
+It is also necessary to implement the getAppComponent methods.
+- As a result, you should get a working application. You can only change
+AppComponentsContainerImpl class
 
-Дополнительное задание (можно не делать):
-- Разделить AppConfig на несколько классов и распределить по ним создание компонентов. В AppComponentsContainerImpl добавить конструктор, который обрабатывает несколько классов-конфигураций
+Additional task (you can skip it):
+- Divide AppConfig into several classes and distribute component creation across them. Add a constructor to AppComponentsContainerImpl that handles multiple configuration classes
 
-Дополнительное задание (можно не делать):
-- В AppComponentsContainerImpl добавить конструктор, который принимает на вход имя пакета, и обрабатывает все имеющиеся там классы-конфигурации (см. зависимости в pom.xml) 
+Additional task (you can skip it):
+- In AppComponentsContainerImpl add a constructor that takes the package name as input and processes all the configuration classes available there (see dependencies in pom.xml)
 
->>>>>>> hw13-DI
-### Преподаватели
-Сергей Петрелевич<br>
-Стрекалов Павел<br>
-Александр Оруджев<br>
-Вячеслав Лапин<br>
-Виталий Куценко<br>
+##Module hw14-SpringMVC<a name="hw15-SpringMVC"></a>
+
+Homework
+Spring MVC Web Application
+Objective: To learn how to create war packages and run them in TomCat.
+Learn to use Thymeleaf.
+- Collect war for the application from DZ about Web Server
+- Create main application classes like Spring beans (Cache, Dao, DBService)
+- Configure dependencies using Java / Annotation based configuration
+- Use @Controller and / or @RestController to process requests
+- Use Thymeleaf as a template engine
+- Run a web application on an external web server
+
+You don't need to do authorization and authentication.
+
+##Module hw15-Executors<a name="hw15-Executors"></a>
+Sequence of numbers
+Objective: To master the basic synchronization mechanisms.
+Two streams print numbers from 1 to 10, then from 10 to 1.
+It is necessary to make the numbers alternate, i.e. I got the following conclusion:
+Stream 1: 1 2 3 4 5 6 7 8 9 10 9 8 7 6 5 4 3 2 1 2 3 4 ....
+Stream 2: 1 2 3 4 5 6 7 8 9 10 9 8 7 6 5 4 3 2 1 2 3 ....
+
+Should always start Stream 1.
+
+##Module hw16-MessageSystem<a name="hw16-MessageSystem"></a>
+
+Homework
+MessageSystem
+Purpose: In practice, master the architectural approach "Message system".
+Add a messaging system to DZ about a web server with an IoC container
+(it's easier to use Spring Boot here).
+Forward messages from websocket to DBService and back.
+
+For how to work with websockets, see the example from the Asynchronous Web applications webinar.
+
+Add MessageSystem as a Module, following the example from the webinar.
+
+##Module hw17-MicroServices<a name="hw17-MicroServices"></a>
+
+Homework
+MessageServer
+Objective: To learn how to develop network applications.
+The server from the previous DZ about MessageSystem is divided into three applications:
+▪ MessageServer
+▪ Frontend
+▪ DBServer
+
+- Make MessageServer socket server, Frontend and DBServer clients
+- Forward messages from Frontend to DBService via MessageServer
+- Run application with two Frontend and two DBService (but on the same database) on different ports
+- Start Frontend and DBService "by hand"
+
+- Optionally, you can launch Frontend and DBServer from MessageServer
+- Such a launch must be "alienable", i.e. the "build" should run on another computer without much hassle.
+
+### Teachers
+Sergey Petrelevich<br>
+Strekalov Pavel <br>
+Alexander Orudzhev <br>
+Vyacheslav Lapin <br>
+Vitaly Kutsenko <br>
+
